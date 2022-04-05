@@ -19,3 +19,16 @@ header{
     background-color: black;
     margin: 6px 0;
 }
+
+.app-name-header{
+    align-self: center;
+    margin-left: 250px;
+    font-size: 2rem;
+}
+
+.search-bar{
+    justify-self: end;
+    align-self: center;
+    margin-left: auto;
+    margin-right: 2%;
+}
