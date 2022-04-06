@@ -1,0 +1,51 @@
+.sidebar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    outline: solid;
+    height: 100%;
+    width:20vh;
+    background-color: black;
+    z-index: 1;
+}
+
+.sidebar .sidebar-menu-button-container{
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    height: 7vh;
+    margin-top: 2.5vh;
+    align-self: flex-end;
+}
+
+ .bar1, .bar2, .bar3{
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+}
+
+.sidebar ul li{
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+.sidebar#hide{
+    transform: translateX(-20vh);
+    transition: transform 0.5s ease-out, visibility 1s;
+    visibility: hidden;
+}
+
+.sidebar#show{
+    transform: translateX(0px);
+    transition: transform 0.5s ease-out, visibility 0s;
+    visibility: visible;
+}

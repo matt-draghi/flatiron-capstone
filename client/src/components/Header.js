@@ -1,10 +1,10 @@
 import "../styles/Header.css"
 
-function Header(){
+function Header({setShowSidebar}){
 
     // Will toggle the class state of the sidebar to shown/hidden; will need to use a state set in App.js
     const showSidebar = () =>{
-        
+        setShowSidebar("show")
     }
 
     return(
@@ -15,7 +15,7 @@ function Header(){
                 <div className="bar3"></div>
             </div>
             <div className="app-name-header">
-                <div>App Name</div>
+                <div>Diem Fitness</div>
             </div>
             <div className="search-bar">
                 {/* Add search bar component that handles search functionality */}
