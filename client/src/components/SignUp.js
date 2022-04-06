@@ -23,6 +23,13 @@ function SignUp(){
 
     const handleCreateAccount = (e) => {
         e.preventDefault()
+        // fetch post to create a new user
+
+        // nested fetch to create a session for the user
+
+        // provide confirmation of account being created
+
+        // send user to home screen
     }
 
     const passwordType = showPassword ? "text":"password"

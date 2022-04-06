@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 
+
 function App() {
 
   const [user, setUser] = useState()

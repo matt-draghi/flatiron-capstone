@@ -13,6 +13,9 @@ function Login(){
 
     const handleLogin = (e) => {
         e.preventDefault()
+        // fetch request to create session
+
+        // send user back to home screen - now logged in
     }
 
     const passwordType = showPassword ? "text":"password"
