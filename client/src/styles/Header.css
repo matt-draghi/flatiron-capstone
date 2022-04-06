@@ -26,6 +26,12 @@ header{
     font-size: 2rem;
 }
 
+.app-name-header a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Gugi', cursive;
+}
+
 .search-bar{
     justify-self: end;
     align-self: center;

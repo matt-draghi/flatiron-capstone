@@ -5,11 +5,13 @@ import Header from "./components/Header"
 import Home from './components/Home';
 import {Switch, Route} from 'react-router-dom'
 import Sidebar from './components/Sidebar';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 function App() {
 
   const [user, setUser] = useState()
-  const [showSidebar, setShowSidebar] = useState("show")
+  const [showSidebar, setShowSidebar] = useState("hide")
 
   const hideSideBar = () => {
     if(showSidebar === "show"){
@@ -30,7 +32,7 @@ function App() {
             <Home />
           </Route>
 
-          {/* <Route exact path="/signup">
+          <Route exact path="/signup">
             <SignUp />
           </Route>
 
@@ -38,19 +40,19 @@ function App() {
             <Login />
           </Route>
 
-          <Route exact path="/account">
+          {/* <Route exact path="/account">
             <Account />
-          </Route>
+          </Route> */}
 
-          <Route exact path="/workouts">
+          {/* <Route exact path="/workouts">
             <Workouts />
-          </Route>
+          </Route> */}
 
-          <Route exact path="/exercises">
+          {/* <Route exact path="/exercises">
             <Exercises />
-          </Route>
+          </Route> */}
 
-          <Route exact path="/equipment">
+          {/* <Route exact path="/equipment">
             <Equipment />
           </Route> */}
 

@@ -13,11 +13,11 @@
 
 .sidebar .sidebar-menu-button-container{
     width: 100%;
-    display: inline-block;
+    /* display: inline-block; */
     cursor: pointer;
     height: 7vh;
     margin-top: 2.5vh;
-    align-self: flex-end;
+    margin-left: 17vh;
 }
 
  .bar1, .bar2, .bar3{

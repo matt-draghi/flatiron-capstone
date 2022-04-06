@@ -1,0 +1,16 @@
+.login-container{
+    display: flex;
+    margin-top: 10vh;
+    height: 70vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-input{
+    margin-bottom: 3vh;
+    color: white;
+}
+
+.password-icon{
+    font-size: 1.2rem;
+}

@@ -1,4 +1,5 @@
 import "../styles/Header.css"
+import {NavLink} from "react-router-dom"
 
 function Header({setShowSidebar}){
 
@@ -15,7 +16,7 @@ function Header({setShowSidebar}){
                 <div className="bar3"></div>
             </div>
             <div className="app-name-header">
-                <div>Diem Fitness</div>
+                <div><NavLink to="/">Diem Fitness</NavLink></div>
             </div>
             <div className="search-bar">
                 {/* Add search bar component that handles search functionality */}
