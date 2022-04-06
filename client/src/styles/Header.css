@@ -1,7 +1,7 @@
 header{
-    height: 10vh;
+    height: 7vh;
     width: 100%;
-    position: fixed;
+    position: sticky;
     display: flex;
     background-color: #A0ADBF;
 }
