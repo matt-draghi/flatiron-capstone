@@ -2,7 +2,7 @@ import "../styles/Header.css"
 
 function Header(){
 
-    // Will toggle the class state of the sidebar to shown/hidden
+    // Will toggle the class state of the sidebar to shown/hidden; will need to use a state set in App.js
     const showSidebar = () =>{
         
     }
