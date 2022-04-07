@@ -11,6 +11,7 @@ function SignUp(){
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [showPassword, setShowPassword] = useState(false)
     const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false)
+    const [errors, setErrors] = useState([])
     
     
     const changePasswordState = () => {
@@ -23,14 +24,49 @@ function SignUp(){
 
     const handleCreateAccount = (e) => {
         e.preventDefault()
+        setErrors([])
         // fetch post to create a new user
+        fetch('/users',{
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                user_name: userName,
+                password: password,
+                password_confirmation: passwordConfirmation,
+                email: email
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data["errors"]){
+                console.log(data["errors"])
+                setErrors(data["errors"])
+                showErrors()
+            }
+            else{
+                // nested fetch to create a session for the user
+                
+                //STRETCH TODO: provide confirmation of account being created - using email
 
-        // nested fetch to create a session for the user
+                // send user to home screen
+            }
+        })
+        
 
-        // provide confirmation of account being created
-
-        // send user to home screen
+        
     }
+
+    const showErrors = errors.length > 0 ?
+            <div className="error-message">
+                <i class="fa fa-times"></i>
+                {errors}
+            </div>
+            :
+            null    
+            
+    
 
     const passwordType = showPassword ? "text":"password"
     const passwordConfirmationType = showPasswordConfirmation ? "text":"password"
@@ -41,6 +77,7 @@ function SignUp(){
 
     return(
         <div className="sign-up-container">
+            {showErrors}
             <form className="sign-up-form" onSubmit={handleCreateAccount}>
                 <div className="sign-up-input">
                 <label>User Name</label><br/>
