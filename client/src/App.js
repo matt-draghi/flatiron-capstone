@@ -21,6 +21,15 @@ function App() {
     }
   }
 
+  useEffect(()=>{
+    fetch(`/me`)
+    .then(response => {
+      if(response.ok){
+        response.json().then((user)=>setUser(user))
+      }
+    })
+  },[])
+
   return (
     <div className="App">
 
@@ -35,7 +44,7 @@ function App() {
           </Route>
 
           <Route exact path="/signup">
-            <SignUp />
+            <SignUp setUser={setUser}/>
           </Route>
 
           <Route exact path="/login">

@@ -3,7 +3,7 @@ import {useState} from "react"
 import { BiShowAlt, BiHide } from 'react-icons/bi';
 
 
-function SignUp(){
+function SignUp({setUser}){
 
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -39,18 +39,32 @@ function SignUp(){
             })
         })
         .then(response => response.json())
-        .then(data => {
-            if(data["errors"]){
-                console.log(data["errors"])
-                setErrors(data["errors"])
+        .then(user => {
+            if(user["errors"]){
+                // console.log(user["errors"])
+                setErrors(user["errors"])
                 showErrors()
             }
             else{
                 // nested fetch to create a session for the user
-                
+                // setUser(user)
+                fetch('/login', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    // send user to home screen
+                    window.location = '/'
+                })
                 //STRETCH TODO: provide confirmation of account being created - using email
-
-                // send user to home screen
             }
         })
         

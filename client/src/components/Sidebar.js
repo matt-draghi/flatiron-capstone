@@ -3,6 +3,17 @@ import "../styles/Sidebar.css"
 
 function Sidebar({user, showSidebar, setShowSidebar}){
 
+    const handleLogout = () => {
+        //fetch request to destroy session
+        fetch('/logout',{
+            method: "DELETE",
+        })
+        .then(()=> {
+            window.location = '/'
+            alert("Logout Successful")
+        })
+    }
+
     const firstLink = () => user ? 
         <li><NavLink to="/account">Account</NavLink></li>
         :
@@ -15,7 +26,7 @@ function Sidebar({user, showSidebar, setShowSidebar}){
 
     const lastLink = () => user ? 
     // going to need to call a logout function here
-        <li><NavLink to="/">Logout</NavLink></li>
+        <li onClick={handleLogout}><NavLink to="/">Logout</NavLink></li>
         :
         null
 
