@@ -20,6 +20,11 @@ function Header({setShowSidebar}){
             </div>
             <div className="search-bar">
                 {/* Add search bar component that handles search functionality */}
+                {/* willl want the search to have a separate search display - the search display will render the 
+                search results - broken down into sections: workouts, exercises, equipment, and display a few
+                results - actual search functionality will be on the frontend, but viewable workouts and such
+                need to be done on the backend
+                */}
                 <input type="text" value="Search"/> {/* Placeholder */}
             </div>
         </header>
