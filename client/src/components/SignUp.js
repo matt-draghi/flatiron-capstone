@@ -5,7 +5,7 @@ import { BiShowAlt, BiHide } from 'react-icons/bi';
 
 function SignUp(){
 
-    const [userName, setUserName] = useState("")
+    const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
@@ -32,7 +32,7 @@ function SignUp(){
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
-                user_name: userName,
+                username: username,
                 password: password,
                 password_confirmation: passwordConfirmation,
                 email: email
@@ -80,8 +80,8 @@ function SignUp(){
             {showErrors}
             <form className="sign-up-form" onSubmit={handleCreateAccount}>
                 <div className="sign-up-input">
-                <label>User Name</label><br/>
-                <input type="text" value={userName} onChange={e=>setUserName(e.target.value)}/><br/>
+                <label>Username</label><br/>
+                <input type="text" value={username} onChange={e=>setUsername(e.target.value)}/><br/>
                 </div>
 
                 <div className="sign-up-input">
