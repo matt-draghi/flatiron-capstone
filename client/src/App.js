@@ -7,6 +7,7 @@ import {Switch, Route} from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import Workouts from './components/Workouts';
 
 
 function App() {
@@ -45,9 +46,9 @@ function App() {
             <Account />
           </Route> */}
 
-          {/* <Route exact path="/workouts">
+          <Route exact path="/workouts">
             <Workouts />
-          </Route> */}
+          </Route>
 
           {/* <Route exact path="/exercises">
             <Exercises />
