@@ -1,0 +1,45 @@
+.loading-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    margin-top: 8%;
+    margin-right: 25%;
+    padding: 1em;
+    max-width: 50ch;
+    align-self: center;
+    z-index: 3;
+}
+
+.delete-buttons{
+    display: flex;
+}
+
+.delete-form{
+    width: 50%;
+}
+
+.delete-form input[type="submit"]{
+    margin-top: 10%;
+    color: red;
+}
+
+.input-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.input-container button{
+    height: 50%;
+    align-self: flex-end;
+}
+
+.account-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+

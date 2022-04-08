@@ -43,7 +43,7 @@ function SignUp({setUser}){
             if(user["errors"]){
                 // console.log(user["errors"])
                 setErrors(user["errors"])
-                showErrors()
+                // showErrors()
             }
             else{
                 // nested fetch to create a session for the user

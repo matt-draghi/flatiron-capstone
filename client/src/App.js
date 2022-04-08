@@ -8,11 +8,14 @@ import Sidebar from './components/Sidebar';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Workouts from './components/Workouts';
+import Account from './components/Account';
 
 
 function App() {
 
   const [user, setUser] = useState()
+  const [username, setUsername] = useState()
+  const [email, setEmail] = useState()
   const [showSidebar, setShowSidebar] = useState("hide")
 
   const hideSideBar = () => {
@@ -25,7 +28,11 @@ function App() {
     fetch(`/me`)
     .then(response => {
       if(response.ok){
-        response.json().then((user)=>setUser(user))
+        response.json().then((user)=>{
+          setUser(user)
+          setUsername(user.username)
+          setEmail(user.email)
+        })
       }
     })
   },[])
@@ -51,9 +58,16 @@ function App() {
             <Login />
           </Route>
 
-          {/* <Route exact path="/account">
-            <Account />
-          </Route> */}
+          <Route exact path="/account">
+            <Account 
+              user={user} 
+              setUser={setUser}
+              username={username}
+              setUsername={setUsername}
+              email={email}
+              setEmail={setEmail}  
+            />
+          </Route>
 
           <Route exact path="/workouts">
             <Workouts />
