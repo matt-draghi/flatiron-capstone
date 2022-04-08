@@ -1,0 +1,2 @@
+class MuscleGroupMapper < ApplicationRecord
+end

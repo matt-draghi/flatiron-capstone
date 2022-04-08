@@ -1,0 +1,2 @@
+class EquipmentPiecesController < ApplicationController
+end

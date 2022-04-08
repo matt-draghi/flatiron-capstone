@@ -1,0 +1,2 @@
+class ExerciseMapper < ApplicationRecord
+end

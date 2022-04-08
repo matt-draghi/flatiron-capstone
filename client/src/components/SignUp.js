@@ -43,11 +43,9 @@ function SignUp({setUser}){
             if(user["errors"]){
                 // console.log(user["errors"])
                 setErrors(user["errors"])
-                // showErrors()
             }
             else{
                 // nested fetch to create a session for the user
-                // setUser(user)
                 fetch('/login', {
                     method: "POST",
                     headers: {

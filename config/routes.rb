@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :muscle_groups
+  resources :muscle_group_mappers
+  resources :equipment_pieces
+  resources :equipment_types
+  resources :exercise_mappers
+  resources :exercises
+  resources :workout_mappers
+  resources :workouts
   
   # USERS
   post '/users', to: 'users#create'
