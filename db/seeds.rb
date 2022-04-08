@@ -64,19 +64,19 @@ mg8 = MuscleGroup.create(name: "Cardio")
 
 #Muscle_Group_Mappers
 
-mgm1 = (muscle_group_id: mg1.id, exercise_id: ex1.id)
-mgm2 = (muscle_group_id: mg7.id, exercise_id: ex2.id)
-mgm3 = (muscle_group_id: mg6.id, exercise_id: ex3.id)
-mgm4 = (muscle_group_id: mg7.id, exercise_id: ex4.id)
-mgm5 = (muscle_group_id: mg8.id, exercise_id: ex5.id)
-mgm6 = (muscle_group_id: mg7.id, exercise_id: ex6.id)
-mgm7 = (muscle_group_id: mg3.id, exercise_id: ex7.id)
-mgm13 = (muscle_group_id: mg2.id, exercise_id: ex7.id)
-mgm8 = (muscle_group_id: mg2.id, exercise_id: ex8.id)
-mgm9 = (muscle_group_id: mg3.id, exercise_id: ex9.id)
-mgm10 = (muscle_group_id: mg3.id, exercise_id: ex10.id)
-mgm11 = (muscle_group_id: mg4.id, exercise_id: ex11.id)
-mgm12 = (muscle_group_id: mg5.id, exercise_id: ex12.id)
+mgm1 = MuscleGroupMapper.create(muscle_group_id: mg1.id, exercise_id: ex1.id)
+mgm2 = MuscleGroupMapper.create(muscle_group_id: mg7.id, exercise_id: ex2.id)
+mgm3 = MuscleGroupMapper.create(muscle_group_id: mg6.id, exercise_id: ex3.id)
+mgm4 = MuscleGroupMapper.create(muscle_group_id: mg7.id, exercise_id: ex4.id)
+mgm5 = MuscleGroupMapper.create(muscle_group_id: mg8.id, exercise_id: ex5.id)
+mgm6 = MuscleGroupMapper.create(muscle_group_id: mg7.id, exercise_id: ex6.id)
+mgm7 = MuscleGroupMapper.create(muscle_group_id: mg3.id, exercise_id: ex7.id)
+mgm13 = MuscleGroupMapper.create(muscle_group_id: mg2.id, exercise_id: ex7.id)
+mgm8 = MuscleGroupMapper.create(muscle_group_id: mg2.id, exercise_id: ex8.id)
+mgm9 = MuscleGroupMapper.create(muscle_group_id: mg3.id, exercise_id: ex9.id)
+mgm10 = MuscleGroupMapper.create(muscle_group_id: mg3.id, exercise_id: ex10.id)
+mgm11 = MuscleGroupMapper.create(muscle_group_id: mg4.id, exercise_id: ex11.id)
+mgm12 = MuscleGroupMapper.create(muscle_group_id: mg5.id, exercise_id: ex12.id)
 
 
 #Equipment_Type
