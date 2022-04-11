@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_154649) do
     t.string "purchase_url"
     t.string "name"
     t.integer "equipment_type_id"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,6 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_154649) do
   create_table "workout_mappers", force: :cascade do |t|
     t.integer "workout_id"
     t.integer "exercise_id"
+    t.integer "reps"
+    t.integer "sets"
+    t.integer "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_154649) do
     t.string "name"
     t.integer "user_id"
     t.string "description"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

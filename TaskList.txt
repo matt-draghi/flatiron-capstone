@@ -1,0 +1,32 @@
+- add new data to seeded data (reps, sets, weight, dummy image urls)
+- add workout mappers and exercises to the workoutview page
+
+{id: 1, name: 'Workout1', user_id: 1, description: "This is a test description for this user's workout", created_at: '2022-04-11T18:42:41.515Z', …}
+created_at: "2022-04-11T18:42:41.515Z"
+description: "This is a test description for this user's workout"
+exercises: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
+id: 1
+name: "Workout1"
+updated_at: "2022-04-11T18:42:41.515Z"
+user_id: 1
+workout_mappers: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
+[[Prototype]]: Object
+
+- get delete button working for exercises on workout page
+- list exercises on exercises page
+- create individual page for each exercise
+
+- allow users to create a workout
+- give users ability to add exercises to workouts
+- allow users to edit workouts
+    -add edit button to workout name?
+
+- create page for users to view equipment types
+- when clickon on types, leads to page that shows all equipment of that type
+- clicking on individual equipment pieces has a model popup with that equipments info
+
+-have search bar functionality work to display a separate div below the search bar with
+  all results from workouts, equipment pieces and exercises, taking them to the individual
+  page for whatever they clicked on???
+
+- implement dual factor or oauth login as extra piece

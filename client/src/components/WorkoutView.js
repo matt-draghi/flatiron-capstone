@@ -10,7 +10,7 @@ function WorkoutView(){
     useEffect(()=>{
         fetch (`/workouts/${selectedWorkout}`)
         .then(response => response.json())
-        .then(workout => console.log(workout))// setWorkout(workout))
+        .then(workout => setWorkout(workout))
     },[])
 
     const listExercises = () => {
