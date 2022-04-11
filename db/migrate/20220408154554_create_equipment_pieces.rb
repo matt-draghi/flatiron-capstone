@@ -7,6 +7,7 @@ class CreateEquipmentPieces < ActiveRecord::Migration[7.0]
       t.string :purchase_url
       t.string :name
       t.integer :equipment_type_id
+      t.string :image
 
       t.timestamps
     end
