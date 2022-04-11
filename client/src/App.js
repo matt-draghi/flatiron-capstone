@@ -70,7 +70,7 @@ function App() {
           </Route>
 
           <Route exact path="/workouts">
-            <Workouts />
+            <Workouts user={user}/>
           </Route>
 
           {/* <Route exact path="/exercises">
