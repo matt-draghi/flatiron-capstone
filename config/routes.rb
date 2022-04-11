@@ -13,6 +13,14 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
+
+  #WORKOUTS
+  # get '/workouts' can create an index to pull all made workouts - allowing users to add workouts to their workout list
+  get '/workouts', to: 'workouts#index'
+  get '/workouts/:id', to: 'workouts#show'
+
+  #EXERCISES 
+  # get ''
   
   # SESSIONS
   post '/login', to: 'sessions#create'

@@ -9,6 +9,7 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Workouts from './components/Workouts';
 import Account from './components/Account';
+import WorkoutView from './components/WorkoutView';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   const [username, setUsername] = useState()
   const [email, setEmail] = useState()
   const [showSidebar, setShowSidebar] = useState("hide")
+  const [selectedWorkout, setSelectedWorkout] = useState(localStorage.getItem('selectedWorkout'))
 
   const hideSideBar = () => {
     if(showSidebar === "show"){
@@ -70,7 +72,12 @@ function App() {
           </Route>
 
           <Route exact path="/workouts">
-            <Workouts user={user}/>
+            <Workouts user={user} setSelectedWorkout={setSelectedWorkout}/>
+          </Route>
+
+          <Route path={`/workout/${selectedWorkout}`}>
+            <h1>{selectedWorkout}</h1>
+            <WorkoutView />
           </Route>
 
           {/* <Route exact path="/exercises">
