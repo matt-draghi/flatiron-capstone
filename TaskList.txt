@@ -1,6 +1,5 @@
 - add new data to seeded data (reps, sets, weight, dummy image urls)
 
-- get delete and demo buttons working for exercises on workout page
 - list exercises on exercises page
 - create individual page for each exercise
 

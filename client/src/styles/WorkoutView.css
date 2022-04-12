@@ -13,24 +13,29 @@ p.exercise-name{
     justify-content: space-between;
 }
 
-/* description: "This is a test description for this user's workout"
-id: 1
-name: "Workout1"
-workout_mappers: Array(7)
-0:
-exercise: {id: 1, name: 'Dumbbell Bench Press', demo_url: 'https://www.youtube.com/embed/XMc1N3o-Qyw', description: 'This is a placeholder for the description', created_at: '2022-04-12T14:48:18.225Z', …}
-reps: 10
-sets: 3
-weight: 25
-[[Prototype]]: Object
-1:
-exercise: {id: 3, name: 'Bent Over Rows', demo_url: 'https://www.youtube.com/embed/pyBHPoC8Nzo', description: 'This is a placeholder for the description', created_at: '2022-04-12T14:48:18.228Z', …}
-reps: 10
-sets: 3
-weight: 25
-[[Prototype]]: Object
-2: {exercise: {…}, reps: 10, sets: 3, weight: 25}
-3: {exercise: {…}, reps: 10, sets: 3, weight: 25}
-4: {exercise: {…}, reps: 10, sets: 3, weight: 25}
-5: {exercise: {…}, reps: 10, sets: 3, weight: 25}
-6: {exercise: {…}, re */
+.modal-header{
+    align-self: flex-start;
+}
+
+.exercise-modal{
+    width: 90%;
+    background-color: black;
+}
+
+.inner-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selected-workout-header{
+    text-align: center;
+}
+
+.workout-back-button{
+    margin-top: 100px;
+    text-decoration: none;
+    border: solid;
+    padding: 5px;
+    border-radius: 20px;
+}

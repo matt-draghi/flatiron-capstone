@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   delete '/workout-mapper/:id', to: 'workout_mappers#destroy'
 
   #EXERCISES 
-  # get ''
+  get '/exercises', to: 'exercises#index'
+  get '/exercises/:id', to: 'exercises#show'
   
   # SESSIONS
   post '/login', to: 'sessions#create'

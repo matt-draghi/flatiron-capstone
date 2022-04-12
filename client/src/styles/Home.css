@@ -7,11 +7,11 @@
     align-items: center;
 }
 
-.wotd-container h1{
+.eotd-container h1{
     text-align: center;
 }
 
-.wotd-video{
+.eotd-video{
     width: 900px;
     height: 600px;
     outline: solid;

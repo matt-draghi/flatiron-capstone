@@ -3,7 +3,7 @@ import './App.css';
 import {useState, useEffect} from "react"
 import Header from "./components/Header"
 import Home from './components/Home';
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, NavLink} from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
@@ -43,9 +43,9 @@ function App() {
     <div className="App">
 
       <Sidebar user={user} showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
-
+      <Header setShowSidebar={setShowSidebar}/>
       <div className='window-container' onClick={hideSideBar}>
-        <Header setShowSidebar={setShowSidebar}/>
+        
         <Switch>
 
           <Route exact path="/">
@@ -76,7 +76,8 @@ function App() {
           </Route>
 
           <Route path={`/workout/${selectedWorkout}`}>
-            <h1>{selectedWorkout}</h1>
+            <NavLink to='/workouts' className='workout-back-button'>Back to Workouts</NavLink>
+            <h1 className='selected-workout-header'>{selectedWorkout}</h1>
             <WorkoutView />
           </Route>
 
