@@ -37,21 +37,21 @@ ex12 = Exercise.create(name: "Skull Crushers", demo_url:"https://www.youtube.com
 
 
 #Workout_Mappers
-wm1 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex1.id)
-wm2 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex3.id)
-wm3 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex4.id)
-wm4 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex7.id)
-wm5 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex12.id)
-wm6 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex5.id)
-wm7 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex4.id)
+wm1 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex1.id, reps: 10, sets: 3, weight: 25)
+wm2 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex3.id, reps: 10, sets: 3, weight: 25)
+wm3 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex4.id, reps: 10, sets: 3, weight: 25)
+wm4 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex7.id, reps: 10, sets: 3, weight: 25)
+wm5 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex12.id, reps: 10, sets: 3, weight: 25)
+wm6 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex5.id, reps: 10, sets: 3, weight: 25)
+wm7 = WorkoutMapper.create(workout_id: w1.id, exercise_id: ex4.id, reps: 10, sets: 3, weight: 25)
 
-wm8 = WorkoutMapper.create(workout_id: w2.id, exercise_id: ex1.id)
-wm9 = WorkoutMapper.create(workout_id: w2.id, exercise_id: ex11.id)
-wm10 = WorkoutMapper.create(workout_id: w2.id, exercise_id: ex9.id)
-wm11 = WorkoutMapper.create(workout_id: w3.id, exercise_id: ex2.id)
-wm12 = WorkoutMapper.create(workout_id: w4.id, exercise_id: ex3.id)
-wm13 = WorkoutMapper.create(workout_id: w3.id, exercise_id: ex5.id)
-wm14 = WorkoutMapper.create(workout_id: w5.id, exercise_id: ex7.id)
+wm8 = WorkoutMapper.create(workout_id: w2.id, exercise_id: ex1.id, reps: 10, sets: 3, weight: 25)
+wm9 = WorkoutMapper.create(workout_id: w2.id, exercise_id: ex11.id, reps: 10, sets: 3, weight: 25)
+wm10 = WorkoutMapper.create(workout_id: w2.id, exercise_id: ex9.id, reps: 10, sets: 3, weight: 25)
+wm11 = WorkoutMapper.create(workout_id: w3.id, exercise_id: ex2.id, reps: 10, sets: 3, weight: 25)
+wm12 = WorkoutMapper.create(workout_id: w4.id, exercise_id: ex3.id, reps: 10, sets: 3, weight: 25)
+wm13 = WorkoutMapper.create(workout_id: w3.id, exercise_id: ex5.id, reps: 10, sets: 3, weight: 25)
+wm14 = WorkoutMapper.create(workout_id: w5.id, exercise_id: ex7.id, reps: 10, sets: 3, weight: 25)
 
 
 #Muscle_Groups

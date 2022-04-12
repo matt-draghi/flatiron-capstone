@@ -1,18 +1,6 @@
 - add new data to seeded data (reps, sets, weight, dummy image urls)
-- add workout mappers and exercises to the workoutview page
 
-{id: 1, name: 'Workout1', user_id: 1, description: "This is a test description for this user's workout", created_at: '2022-04-11T18:42:41.515Z', …}
-created_at: "2022-04-11T18:42:41.515Z"
-description: "This is a test description for this user's workout"
-exercises: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
-id: 1
-name: "Workout1"
-updated_at: "2022-04-11T18:42:41.515Z"
-user_id: 1
-workout_mappers: (7) [{…}, {…}, {…}, {…}, {…}, {…}, {…}]
-[[Prototype]]: Object
-
-- get delete button working for exercises on workout page
+- get delete and demo buttons working for exercises on workout page
 - list exercises on exercises page
 - create individual page for each exercise
 

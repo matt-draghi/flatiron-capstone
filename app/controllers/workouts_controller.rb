@@ -13,7 +13,7 @@ class WorkoutsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         workout = user.workouts.find_by(name: params[:id])
 
-        render json: workout, include: ['workout_mappers', 'exercises'], status: 200
+        render json: workout, include: ['workout_mappers'], status: 200
     end
 
 end

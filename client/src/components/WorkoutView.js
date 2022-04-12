@@ -6,19 +6,40 @@ function WorkoutView(){
     const url = window.location.href.split('/')
     const selectedWorkout = url.at(-1)
     const [workout, setWorkout] = useState([])
+    const [workoutMapperArray, setWorkoutMapperArray] = useState([])
 
     useEffect(()=>{
         fetch (`/workouts/${selectedWorkout}`)
         .then(response => response.json())
-        .then(workout => setWorkout(workout))
+        .then(workout => {
+            setWorkout(workout)
+            setWorkoutMapperArray(workout.workout_mappers)
+        })
     },[])
 
+    const handleDelete = (id) =>{
+                
+                fetch(`/workout-mapper/${id}`,{
+                    method: "DELETE"
+                })
+                .then(()=>{
+                    const updatedWorkoutMapperArray = workoutMapperArray.filter((mapper)=> mapper.id != id)
+                    setWorkoutMapperArray(updatedWorkoutMapperArray)
+                })
+            }
+
     const listExercises = () => {
-        const exerciseArray = workout.exercises
-        console.log(exerciseArray)
-        return exerciseArray?.map((exercise)=>{
+        return workoutMapperArray?.map((workoutMapper)=>{
+          
             return(
-                <ExerciseRow exercise={exercise}/>
+                <ExerciseRow 
+                    handleDelete={handleDelete}
+                    id={workoutMapper.id}
+                    exercise={workoutMapper.exercise}
+                    reps={workoutMapper.reps}
+                    sets={workoutMapper.sets}
+                    weight={workoutMapper.weight}
+                />
             )
         })
     }
