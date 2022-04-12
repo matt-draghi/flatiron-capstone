@@ -10,6 +10,8 @@ import Login from './components/Login';
 import Workouts from './components/Workouts';
 import Account from './components/Account';
 import WorkoutView from './components/WorkoutView';
+import Exercises from './components/Exercises';
+import ExerciseView from './components/ExerciseView';
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
   const [email, setEmail] = useState()
   const [showSidebar, setShowSidebar] = useState("hide")
   const [selectedWorkout, setSelectedWorkout] = useState(localStorage.getItem('selectedWorkout'))
+  const [selectedExercise, setSelectedExercise] = useState(localStorage.getItem('selectedExercise'))
 
   const hideSideBar = () => {
     if(showSidebar === "show"){
@@ -81,9 +84,15 @@ function App() {
             <WorkoutView />
           </Route>
 
-          {/* <Route exact path="/exercises">
-            <Exercises />
-          </Route> */}
+          <Route exact path={`/exercises`}>
+            <Exercises user={user} setSelectedExercise={setSelectedExercise}/>
+          </Route>
+
+          <Route exact path={`/exercises/${selectedExercise}`}>
+            <NavLink to='/exercises' className='exercise-back-button'>Back to Exercises</NavLink>
+            <h1 className='selected-exercise-header'>{selectedExercise}</h1>
+            <ExerciseView selectedExercise={selectedExercise}/>
+          </Route>
 
           {/* <Route exact path="/equipment">
             <Equipment />

@@ -1,7 +1,7 @@
 - add new data to seeded data (reps, sets, weight, dummy image urls)
 
-- list exercises on exercises page
 - create individual page for each exercise
+- display muscle group on exercise individual page
 
 - allow users to create a workout
 - give users ability to add exercises to workouts
