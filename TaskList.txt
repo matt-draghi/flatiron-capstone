@@ -1,16 +1,16 @@
 - add new data to seeded data (reps, sets, weight, dummy image urls)
 
-- create individual page for each exercise
-- display muscle group on exercise individual page
+- finish individual page for each exercise
+- display muscle group and equipment needed on exercise individual page
 
-- allow users to create a workout
-- give users ability to add exercises to workouts
-- allow users to edit workouts
+- allow users to create a workout (button will be on workouts page)
+- give users ability to add exercises to workouts (will be on exercise list/individual page)
+- allow users to edit workouts (update name on the workout page???)
     -add edit button to workout name?
 
-- create page for users to view equipment types
-- when clickon on types, leads to page that shows all equipment of that type
-- clicking on individual equipment pieces has a model popup with that equipments info
+- create page for users to view equipment types (will be a list of the types)
+- when clickon one type, leads to page that shows all equipment of that type
+- clicking on individual equipment pieces takes you to equipment page or modal popup with that equipments info
 
 -have search bar functionality work to display a separate div below the search bar with
   all results from workouts, equipment pieces and exercises, taking them to the individual
