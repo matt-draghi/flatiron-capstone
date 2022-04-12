@@ -4,7 +4,7 @@ function ExerciseCard({exercise, setSelectedExercise}){
 
     const handleExerciseSelect = () =>{
         localStorage.setItem('selectedExercise', exercise.name)
-        setSelectedExercise(exercise)
+        setSelectedExercise(exercise.name)
     }
 
     return(

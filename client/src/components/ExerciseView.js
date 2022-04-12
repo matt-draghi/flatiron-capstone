@@ -17,6 +17,24 @@ function ExerciseView({selectedExercise}){
     return(
         <div className="exercise-view-container">
             {/* Add the exercise video */}
+            <div className="exercise-video-container">
+                <iframe width="560" height="315" src={shownExercise?.demo_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
+            <h1>{selectedExercise}</h1>
+            <h3>Description:</h3>
+            <p>{shownExercise?.description}</p>
+            <h3>Equipment Used:</h3>
+            <ul>
+                {shownExercise?.equipment_types.map((equipment_type)=>{
+                    return <li>{equipment_type.category}</li>
+                })}
+            </ul>
+            <h3>Muscles Hit:</h3>
+            <ul>
+                {shownExercise?.muscle_groups.map((muscle_group)=>{
+                    return <li>{muscle_group.name}</li>
+                })}
+            </ul>
         </div>
     )
 }

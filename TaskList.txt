@@ -18,6 +18,7 @@
 -have search bar functionality work to display a separate div below the search bar with
   all results from workouts, equipment pieces and exercises, taking them to the individual
   page for whatever they clicked on???
+- add filter on list pages for workouts, exercises, and equipment
 
 - implement dual factor or oauth login as extra piece
 

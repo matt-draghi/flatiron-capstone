@@ -90,7 +90,6 @@ function App() {
 
           <Route exact path={`/exercises/${selectedExercise}`}>
             <NavLink to='/exercises' className='exercise-back-button'>Back to Exercises</NavLink>
-            <h1 className='selected-exercise-header'>{selectedExercise}</h1>
             <ExerciseView selectedExercise={selectedExercise}/>
           </Route>
 

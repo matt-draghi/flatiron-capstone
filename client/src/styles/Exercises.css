@@ -12,3 +12,17 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 30%;
 }
+
+.exercise-video-container{
+    background-color: black;
+    outline: solid;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.exercise-view-container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
