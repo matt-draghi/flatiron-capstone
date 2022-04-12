@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 30%;
+    row-gap: 3em;
 }
 
 .exercise-video-container{
@@ -25,4 +26,8 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.exercise-card-container{
+    outline: solid;
 }
