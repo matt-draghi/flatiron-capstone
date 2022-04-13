@@ -3,6 +3,8 @@ import ExerciseRow from "./ExerciseRow"
 import "../styles/WorkoutView.css"
 
 function WorkoutView(){
+    // const decodedURL = decodeURI(window.location)
+    // console.log(decodedURL)
     const url = window.location.href.split('/')
     const selectedWorkout = url.at(-1)
     const [workoutMapperArray, setWorkoutMapperArray] = useState([])
@@ -11,9 +13,11 @@ function WorkoutView(){
 
 
     useEffect(()=>{
+        console.log("THIS WORKS")
         fetch (`/workouts/${selectedWorkout}`)
         .then(response => response.json())
         .then(workout => {
+            console.log("fetch works")
             setWorkoutMapperArray(workout.workout_mappers)
         })
     },[])
@@ -38,6 +42,23 @@ function WorkoutView(){
         setVideoPlaying(null)
     }
 
+    const handleUpdate = (id, updatedRepCount, updatedSetCount, updatedWeight) =>{
+        console.log("Mapper Id: ", id)
+        console.log("Updated Rep Count: ", updatedRepCount)
+        console.log("Updated Set Count: ", updatedSetCount)
+        console.log("Updated Weight Count: ", updatedWeight)
+        fetch(`/workout-mapper/${id}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                reps: updatedRepCount,
+                sets: updatedSetCount,
+                weight: updatedWeight
+            })
+        })
+    }
 
     const listExercises = () => {
         return workoutMapperArray?.map((workoutMapper)=>{
@@ -46,6 +67,7 @@ function WorkoutView(){
                 <>
                     <ExerciseRow 
                         handleDelete={handleDelete}
+                        handleUpdate={handleUpdate}
                         id={workoutMapper.id}
                         exercise={workoutMapper.exercise}
                         reps={workoutMapper.reps}
@@ -67,8 +89,6 @@ function WorkoutView(){
             )
         })
     }
-
-    
 
     return(
         <div className="workout-exercise-list" >

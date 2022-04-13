@@ -1,12 +1,8 @@
 - add new data to seeded data (reps, sets, weight, dummy image urls)
 
-
-- finish individual page for each exercise
-- display muscle group and equipment needed on exercise individual page
-
 - allow users to create a workout (button will be on workouts page)
 - give users ability to add exercises to workouts (will be on exercise list/individual page) 
-  - this creates a mapper
+  - this creates a mapper (default value of reps sets weight = 0)
 - let users update reps, sets, weight of workout
 - allow users to edit workouts (update name on the workout page???)
     -add edit button to workout name?

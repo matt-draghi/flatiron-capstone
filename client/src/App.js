@@ -75,10 +75,13 @@ function App() {
           </Route>
 
           <Route exact path="/workouts">
-            <Workouts user={user} setSelectedWorkout={setSelectedWorkout}/>
+            <Workouts user={user} setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout}/>
           </Route>
 
           <Route path={`/workout/${selectedWorkout}`}>
+            {/* {console.log(`/workout/${selectedWorkout}`)}
+            {console.log(`/workout/${encodeURI(selectedWorkout)}`)} */}
+            {console.log(window.location)}
             <NavLink to='/workouts' className='workout-back-button'>Back to Workouts</NavLink>
             <h1 className='selected-workout-header'>{selectedWorkout}</h1>
             <WorkoutView />

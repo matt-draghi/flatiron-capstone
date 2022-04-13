@@ -18,9 +18,11 @@ Rails.application.routes.draw do
   # get '/workouts' can create an index to pull all made workouts - allowing users to add workouts to their workout list
   get '/workouts', to: 'workouts#index'
   get '/workouts/:id', to: 'workouts#show'
+  post '/workouts', to: 'workouts#create'
 
   #WORKOUT MAPPER
   delete '/workout-mapper/:id', to: 'workout_mappers#destroy'
+  patch '/workout-mapper/:id', to: 'workout_mappers#update'
 
   #EXERCISES 
   get '/exercises', to: 'exercises#index'

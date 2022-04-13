@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "../styles/Workouts.css"
 import WorkoutCard from "./WorkoutCard"
 
-function Workouts({user, setSelectedWorkout}){
+function Workouts({user, selectedWorkout, setSelectedWorkout}){
 
     const [workoutsList, setWorkoutsList] = useState([])
 
@@ -25,11 +25,34 @@ function Workouts({user, setSelectedWorkout}){
             )
         }
     }
+    
+
+    const handleCreateWorkout = () => {
+        fetch('/workouts',{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            // body: JSON.stringify()
+        })
+        .then(response => response.json())
+        .then(workout => {
+            console.log("Encoded", encodeURI(workout.name))
+            localStorage.setItem('selectedWorkout', workout.name)
+            setSelectedWorkout(workout.name)
+            console.log("Selected workout: ", selectedWorkout)
+            setWorkoutsList(workoutsList => [...workoutsList, workout])
+            window.location = `/workout/${workout.name}`
+        })
+    }
 
     if(user){
         return(
             <div className="workouts-container">
-                <h1>Your Workouts</h1>
+                <div className="workout-container-header">
+                    <h1>Your Workouts</h1>
+                    <button onClick={handleCreateWorkout}>Create Workout</button>
+                </div>
                 <div className="workouts-list-container">
                     {showWorkouts()}
                 </div>
