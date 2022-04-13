@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import ExerciseRow from "./ExerciseRow"
 import "../styles/WorkoutView.css"
 
@@ -10,8 +11,8 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
     const [videoPlaying, setVideoPlaying] = useState(null)
     const [modalShow, setModalShow] = useState(false)
     const [nameModalShow, setNameModalShow] = useState(false)
-    const [editedName, setEditedName] = useState(workoutName)
-
+    const [editedName, setEditedName] = useState(selectedWorkout)
+    const history = useHistory()
 
 
 
@@ -95,7 +96,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     const handleNameChange = (e) =>{
         e.preventDefault()
-        fetch(`/workouts/${workoutName}`,{
+        fetch(`/workouts/${selectedWorkout}`,{
             method: "PATCH",
             headers: {
                 "Content-Type":"application/json"
@@ -106,7 +107,9 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            localStorage.setItem('selectedWorkout', data.name)
+            setSelectedWorkout(data.name)
+            history.push(`/workout/${data.name}`)
         })
         setNameModalShow(false)
     }
@@ -114,7 +117,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
     return(
         <>
             <div className="workout-view-header">
-                <h1 className='selected-workout-header'>Workout Name</h1>
+                <h1 className='selected-workout-header'>{selectedWorkout}</h1>
                 <button onClick={editWorkout}>Edit Workout Name</button>
                 <dialog open={nameModalShow} className='workout-name-modal'>
                     <form onSubmit={handleNameChange}>
