@@ -17,8 +17,9 @@ function WorkoutView(){
         fetch (`/workouts/${selectedWorkout}`)
         .then(response => response.json())
         .then(workout => {
-            console.log(workout)
-            setWorkoutMapperArray(workout.workout_mappers)
+            console.log(workout.workout_mappers)
+            const sortedWorkoutMapperArray = workout.workout_mappers.sort((workoutMapperA, workoutMapperB) => workoutMapperA.id - workoutMapperB.id)
+            setWorkoutMapperArray(sortedWorkoutMapperArray)
         })
     },[])
 
