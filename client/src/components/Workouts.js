@@ -33,7 +33,6 @@ function Workouts({user, selectedWorkout, setSelectedWorkout}){
             headers: {
                 "Content-Type": "application/json"
             },
-            // body: JSON.stringify()
         })
         .then(response => response.json())
         .then(workout => {

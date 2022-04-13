@@ -30,10 +30,4 @@ class WorkoutsController < ApplicationController
         end
     end
 
-
-    # private
-
-    # def workout_params
-    #     params.permit(:name, )
-    # end
 end

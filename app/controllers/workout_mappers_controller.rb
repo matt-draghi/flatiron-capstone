@@ -23,6 +23,6 @@ class WorkoutMappersController < ApplicationController
     private
 
     def update_params
-        params.permit(:reps, :sets, :weight)
+        params.permit(:id, :reps, :sets, :weight)
     end
 end

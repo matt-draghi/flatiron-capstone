@@ -12,12 +12,12 @@ function WorkoutView(){
     const [modalShow, setModalShow] = useState(false)
 
 
+
     useEffect(()=>{
-        console.log("THIS WORKS")
         fetch (`/workouts/${selectedWorkout}`)
         .then(response => response.json())
         .then(workout => {
-            console.log("fetch works")
+            console.log(workout)
             setWorkoutMapperArray(workout.workout_mappers)
         })
     },[])
