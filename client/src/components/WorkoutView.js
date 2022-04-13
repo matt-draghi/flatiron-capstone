@@ -2,22 +2,24 @@ import { useEffect, useState } from "react"
 import ExerciseRow from "./ExerciseRow"
 import "../styles/WorkoutView.css"
 
-function WorkoutView(){
-    // const decodedURL = decodeURI(window.location)
-    // console.log(decodedURL)
-    const url = window.location.href.split('/')
-    const selectedWorkout = url.at(-1)
+function WorkoutView({setSelectedWorkout, selectedWorkout}){
+    const url = window.location.href.split('/')   //This is the encoded version of the url split
+    const workoutFromUrl = url.at(-1)  //This is the encoded workout name
+    const workoutName = decodeURI(workoutFromUrl) //Normal name
     const [workoutMapperArray, setWorkoutMapperArray] = useState([])
     const [videoPlaying, setVideoPlaying] = useState(null)
     const [modalShow, setModalShow] = useState(false)
+    const [nameModalShow, setNameModalShow] = useState(false)
+    const [editedName, setEditedName] = useState(workoutName)
+
 
 
 
     useEffect(()=>{
-        fetch (`/workouts/${selectedWorkout}`)
+        console.log(workoutName)
+        fetch (`/workouts/${workoutName}`) //Grabs the workout mappers based on the decoded workout name
         .then(response => response.json())
         .then(workout => {
-            console.log(workout.workout_mappers)
             const sortedWorkoutMapperArray = workout.workout_mappers.sort((workoutMapperA, workoutMapperB) => workoutMapperA.id - workoutMapperB.id)
             setWorkoutMapperArray(sortedWorkoutMapperArray)
         })
@@ -44,10 +46,6 @@ function WorkoutView(){
     }
 
     const handleUpdate = (id, updatedRepCount, updatedSetCount, updatedWeight) =>{
-        console.log("Mapper Id: ", id)
-        console.log("Updated Rep Count: ", updatedRepCount)
-        console.log("Updated Set Count: ", updatedSetCount)
-        console.log("Updated Weight Count: ", updatedWeight)
         fetch(`/workout-mapper/${id}`,{
             method: "PATCH",
             headers: {
@@ -59,6 +57,10 @@ function WorkoutView(){
                 weight: updatedWeight
             })
         })
+    }
+
+    const editWorkout = () => {
+        setNameModalShow(true)
     }
 
     const listExercises = () => {
@@ -91,10 +93,42 @@ function WorkoutView(){
         })
     }
 
+    const handleNameChange = (e) =>{
+        e.preventDefault()
+        fetch(`/workouts/${workoutName}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name: editedName
+            }) 
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        setNameModalShow(false)
+    }
+
     return(
-        <div className="workout-exercise-list" >
-            {listExercises()}
-        </div>
+        <>
+            <div className="workout-view-header">
+                <h1 className='selected-workout-header'>Workout Name</h1>
+                <button onClick={editWorkout}>Edit Workout Name</button>
+                <dialog open={nameModalShow} className='workout-name-modal'>
+                    <form onSubmit={handleNameChange}>
+                        <label>Edit Workout Name</label>
+                        <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
+                        <input type="submit" value="Save"/>
+                    </form>
+                </dialog>
+            </div>
+            <div className="workout-exercise-list" >
+                {listExercises()}
+            </div>
+        </>
+
     )
 }
 

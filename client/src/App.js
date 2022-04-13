@@ -29,6 +29,7 @@ function App() {
     }
   }
 
+
   useEffect(()=>{
     fetch(`/me`)
     .then(response => {
@@ -79,12 +80,9 @@ function App() {
           </Route>
 
           <Route path={`/workout/${selectedWorkout}`}>
-            {/* {console.log(`/workout/${selectedWorkout}`)}
-            {console.log(`/workout/${encodeURI(selectedWorkout)}`)} */}
-            {console.log(window.location)}
             <NavLink to='/workouts' className='workout-back-button'>Back to Workouts</NavLink>
-            <h1 className='selected-workout-header'>{selectedWorkout}</h1>
-            <WorkoutView />
+
+            <WorkoutView setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout}/>
           </Route>
 
           <Route exact path={`/exercises`}>

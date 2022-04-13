@@ -30,4 +30,23 @@ class WorkoutsController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: session[:user_id])
+        workout = user.workouts.find_by(name: params[:id])
+
+        if workout
+            workout.update(update_params)
+            render json: workout, status: :ok
+        else
+            render json: {errors: workout.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
+
+    private
+
+    def update_params
+        params.permit(:name)
+    end
+
 end
