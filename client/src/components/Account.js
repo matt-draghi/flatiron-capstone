@@ -47,7 +47,7 @@ function Account({user, setUser, username, setUsername, email, setEmail}){
 
     const updateAccount = (e) =>{
         e.preventDefault()
-        fetch(`/api/users/${user.id}`,{
+        fetch(`/users/${user.id}`,{
             method: "PATCH",
             headers:{
                 "Content-Type": "application/json"
@@ -101,7 +101,7 @@ function Account({user, setUser, username, setUsername, email, setEmail}){
     const deleteAccount = (e) => {
         e.preventDefault()
         // Fetch to delete here
-        fetch(`/api/users/${user.id}`,{
+        fetch(`/users/${user.id}`,{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json"

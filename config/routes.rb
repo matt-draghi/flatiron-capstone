@@ -9,34 +9,34 @@ Rails.application.routes.draw do
   resources :workouts
   
   # USERS
-  post '/api/users', to: 'users#create'
-  get '/api/me', to: 'users#show'
-  patch '/api/users/:id', to: 'users#update'
-  delete '/api/users/:id', to: 'users#destroy'
+  post '/users', to: 'users#create'
+  get '/me', to: 'users#show'
+  patch '/users/:id', to: 'users#update'
+  delete '/users/:id', to: 'users#destroy'
 
   #WORKOUTS
   # get '/workouts' can create an index to pull all made workouts - allowing users to add workouts to their workout list
-  get '/api/workouts_', to: 'workouts#index'
-  get '/api/workouts_/:id', to: 'workouts#show'
-  post '/api/workouts_', to: 'workouts#create'
-  patch '/api/workouts_/:id', to: 'workouts#update'
-  delete '/api/workouts_/:id', to: 'workouts#destroy'
+  get '/workouts', to: 'workouts#index'
+  get '/workouts/:id', to: 'workouts#show'
+  post '/workouts', to: 'workouts#create'
+  patch '/workouts/:id', to: 'workouts#update'
+  delete '/workouts/:id', to: 'workouts#destroy'
 
   #WORKOUT MAPPER
-  delete '/api/workout-mapper/:id', to: 'workout_mappers#destroy'
-  patch '/api/workout-mapper/:id', to: 'workout_mappers#update'
-  post '/api/workout-mapper', to: 'workout_mappers#create'
+  delete '/workout-mapper/:id', to: 'workout_mappers#destroy'
+  patch '/workout-mapper/:id', to: 'workout_mappers#update'
+  post '/workout-mapper', to: 'workout_mappers#create'
 
   #EXERCISES 
-  get '/api/exercises', to: 'exercises#index'
-  get '/api/exercises/:id', to: 'exercises#show'
+  get '/exercises', to: 'exercises#index'
+  get '/exercises/:id', to: 'exercises#show'
 
   #EQUIPMENT TYPES
-  get '/api/equipment-types', to: 'equipment_types#index'
+  get 'equipment-types', to: 'equipment_types#index'
   
   # SESSIONS
-  post '/api/login', to: 'sessions#create'
-  delete '/api/logout', to: 'sessions#destroy'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   # DEFAULT
   get '*path',

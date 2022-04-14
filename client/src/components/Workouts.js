@@ -20,7 +20,7 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
     
 
     const handleCreateWorkout = () => {
-        fetch('/api/workouts',{
+        fetch('/workouts',{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

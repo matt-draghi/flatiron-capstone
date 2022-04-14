@@ -18,7 +18,7 @@ function Login(){
         e.preventDefault()
         setErrors([])
         // fetch request to create session
-        fetch('/api/login', {
+        fetch('/login', {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
