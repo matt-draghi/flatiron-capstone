@@ -24,7 +24,7 @@ function App() {
   const [selectedWorkout, setSelectedWorkout] = useState(localStorage.getItem('selectedWorkout'))
   const [selectedExercise, setSelectedExercise] = useState(localStorage.getItem('selectedExercise'))
   const [workoutsList, setWorkoutsList] = useState(localStorage.getItem('workoutsList'))
-  const [equipmentTypes, setEquipmentTypes] = useState(localStorage.getItem('equipmentTypes'))
+  const [equipmentTypes, setEquipmentTypes] = useState(JSON.parse(localStorage.getItem('equipmentTypes')))
   const [selectedEquipmentType, setSelectedEquipmentType] = useState(localStorage.getItem('selectedEquipmentType'))
 
 
@@ -60,7 +60,7 @@ function App() {
       .then(data => {
         console.log(data)
         setEquipmentTypes(data)
-        localStorage.setItem('equipmentTypes', data)
+        localStorage.setItem('equipmentTypes', JSON.stringify(data))
       })
     })
   },[])

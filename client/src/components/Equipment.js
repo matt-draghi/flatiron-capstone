@@ -4,6 +4,7 @@ function Equipment({equipmentTypes, setSelectedEquipmentType}){
 
     const showEquipmentTypes = () => {
         if(equipmentTypes?.length > 0){
+            console.log(equipmentTypes)
             return equipmentTypes.map((equipmentType)=>{
                 return <EquipmentCard equipmentType={equipmentType} setSelectedEquipmentType={setSelectedEquipmentType}/>
             })
