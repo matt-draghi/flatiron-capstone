@@ -14,7 +14,7 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
     // },[])
 
     const showWorkouts = () => {
-        if(workoutsList.length > 0){
+        if(workoutsList?.length > 0){
             return workoutsList.map((workout)=>{
                 return <WorkoutCard workout={workout} setSelectedWorkout={setSelectedWorkout}/>
             })
@@ -42,7 +42,7 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
             console.log("Selected workout: ", selectedWorkout)
             setWorkoutsList(workoutsList => [...workoutsList, workout])
             localStorage.setItem('workoutsList', [...workoutsList, workout])
-            window.location = `/workout/${workout.name}`
+            window.location = `/workouts/${workout.name}`
         })
     }
 

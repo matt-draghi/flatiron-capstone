@@ -12,7 +12,7 @@ function WorkoutCard({workout, setSelectedWorkout}){
         <div className="workout-card-container">
             <img/>
             <div className="middle">
-                <NavLink to={`/workout/${workout.name}`} onClick={handleWorkoutSelect} className="text">{workout.name}</NavLink>
+                <NavLink to={`/workouts/${workout.name}`} onClick={handleWorkoutSelect} className="text">{workout.name}</NavLink>
             </div>
         </div>
     )

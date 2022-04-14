@@ -1,7 +1,4 @@
-- add new data to seeded data (reps, sets, weight, dummy image urls)
-
-- give users ability to add exercises to workouts (will be on exercise list/individual page) 
-  - this creates a mapper (default value of reps sets weight = 0)
+- add new data to seeded data (dummy image urls)
 
 - create page for users to view equipment types (will be a list of the types)
 - when clickon one type, leads to page that shows all equipment of that type
@@ -12,6 +9,11 @@
   page for whatever they clicked on???
 - add filter on list pages for workouts, exercises, and equipment
 
+
+STRETCH
 - implement dual factor or oauth login as extra piece
+- add image uploading capabilities for playlists
+- create admin page for admins to add new exercises, equipment, etc.
+- use web scraping to populate equipment?
 
 - fix styling

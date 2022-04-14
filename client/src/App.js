@@ -89,9 +89,8 @@ function App() {
             <Workouts user={user} setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout} workoutsList={workoutsList} setWorkoutsList={setWorkoutsList}/>
           </Route>
 
-          <Route path={`/workout/${selectedWorkout}`}>
+          <Route path={`/workouts/${selectedWorkout}`}>
             <NavLink to='/workouts' className='workout-back-button'>Back to Workouts</NavLink>
-
             <WorkoutView setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout}/>
           </Route>
 

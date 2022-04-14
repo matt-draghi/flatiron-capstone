@@ -11,13 +11,14 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
     const [videoPlaying, setVideoPlaying] = useState(null)
     const [modalShow, setModalShow] = useState(false)
     const [nameModalShow, setNameModalShow] = useState(false)
+    const [deleteModalShow, setDeleteModalShow] = useState(false)
     const [editedName, setEditedName] = useState(selectedWorkout)
     const history = useHistory()
 
 
 
     useEffect(()=>{
-        console.log(workoutName)
+        // console.log(workoutName)
         fetch (`/workouts/${workoutName}`) //Grabs the workout mappers based on the decoded workout name
         .then(response => response.json())
         .then(workout => {
@@ -62,6 +63,10 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     const editWorkout = () => {
         setNameModalShow(true)
+    }
+
+    const deleteWorkout = () =>{
+        setDeleteModalShow(true)
     }
 
     const listExercises = () => {
@@ -109,9 +114,22 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         .then(data => {
             localStorage.setItem('selectedWorkout', data.name)
             setSelectedWorkout(data.name)
-            history.push(`/workout/${data.name}`)
+            history.push(`/workouts/${data.name}`)
         })
         setNameModalShow(false)
+    }
+
+    const handleDeleteWorkout = () => {
+        console.log(workoutName)
+        fetch(`/workouts/${workoutName}`,{
+            method:"DELETE",
+        })
+        .then((response) => response.json())
+        .then(()=>{
+            setDeleteModalShow(false)
+            // history.push(`/workouts`)
+            window.location = `/workouts`
+        })
     }
 
     return(
@@ -119,13 +137,19 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
             <div className="workout-view-header">
                 <h1 className='selected-workout-header'>{selectedWorkout}</h1>
                 <button onClick={editWorkout}>Edit Workout Name</button>
-                <dialog open={nameModalShow} className='workout-name-modal'>
-                    <form onSubmit={handleNameChange}>
-                        <label>Edit Workout Name</label>
-                        <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
-                        <input type="submit" value="Save"/>
-                    </form>
-                </dialog>
+                    <dialog open={nameModalShow} className='workout-name-modal'>
+                        <form onSubmit={handleNameChange}>
+                            <label>Edit Workout Name</label>
+                            <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
+                            <input type="submit" value="Save"/>
+                        </form>
+                    </dialog>
+                <button onClick={deleteWorkout}>Delete Workout</button>
+                    <dialog open={deleteModalShow} className='workout-delete-modal'>
+                        <h3>Are you sure you want to delete this workout?</h3>
+                        <button onClick={handleDeleteWorkout}>Yes</button>
+                        <button onClick={()=>setDeleteModalShow(false)}>No</button>
+                    </dialog>
             </div>
             <div className="workout-exercise-list" >
                 {listExercises()}
