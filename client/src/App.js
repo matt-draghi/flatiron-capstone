@@ -22,6 +22,8 @@ function App() {
   const [showSidebar, setShowSidebar] = useState("hide")
   const [selectedWorkout, setSelectedWorkout] = useState(localStorage.getItem('selectedWorkout'))
   const [selectedExercise, setSelectedExercise] = useState(localStorage.getItem('selectedExercise'))
+  const [workoutsList, setWorkoutsList] = useState(localStorage.getItem('workoutsList'))
+
 
   const hideSideBar = () => {
     if(showSidebar === "show"){
@@ -38,6 +40,14 @@ function App() {
           setUser(user)
           setUsername(user.username)
           setEmail(user.email)
+
+          fetch(`/workouts`)
+          .then(response => response.json())
+          .then(workouts => {
+            const sortedWorkouts = workouts.sort((workoutA, workoutB) => workoutA.id - workoutB.id)
+            setWorkoutsList(sortedWorkouts)
+            localStorage.setItem('workoutList', sortedWorkouts)
+          })
         })
       }
     })
@@ -76,7 +86,7 @@ function App() {
           </Route>
 
           <Route exact path="/workouts">
-            <Workouts user={user} setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout}/>
+            <Workouts user={user} setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout} workoutsList={workoutsList} setWorkoutsList={setWorkoutsList}/>
           </Route>
 
           <Route path={`/workout/${selectedWorkout}`}>
@@ -86,12 +96,12 @@ function App() {
           </Route>
 
           <Route exact path={`/exercises`}>
-            <Exercises user={user} setSelectedExercise={setSelectedExercise}/>
+            <Exercises user={user} setSelectedExercise={setSelectedExercise} />
           </Route>
 
           <Route exact path={`/exercises/${selectedExercise}`}>
             <NavLink to='/exercises' className='exercise-back-button'>Back to Exercises</NavLink>
-            <ExerciseView selectedExercise={selectedExercise}/>
+            <ExerciseView selectedExercise={selectedExercise} workoutsList={workoutsList}/>
           </Route>
 
           {/* <Route exact path="/equipment">

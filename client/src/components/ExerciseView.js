@@ -1,26 +1,72 @@
 import { useEffect, useState } from "react"
 
-function ExerciseView({selectedExercise}){
+function ExerciseView({selectedExercise, workoutsList}){
 
     const [shownExercise, setShownExercise] = useState()
+    const [addToWorkout, setAddToWorkout] = useState("Choose a Workout")
+    const [chosenWorkout, setChosenWorkout] = useState()
 
     useEffect(()=>{
-        console.log(selectedExercise)
+        // console.log(selectedExercise)
         fetch (`/exercises/${selectedExercise}`)
         .then(response => response.json())
         .then(exercise => {
             setShownExercise(exercise)
-            console.log(exercise)
         })
     },[])
 
+    const mapWorkoutOptions = () => {
+        return (
+            workoutsList?.map((workout)=>{
+                return <option value={workout.name}>{workout.name}</option>
+            })
+        )
+    }
+
+    const handleChangeSelection = (e) => {
+        setAddToWorkout(e.target.value)
+        setChosenWorkout(workoutsList.find(workout => workout.name === e.target.value))
+    }
+
+    const addExerciseToWorkout = () => {
+        // console.log(shownExercise) //grab the id from shown exercise to set as the exercise_id
+        // console.log(chosenWorkout) //grab the id from chosen workout to set as the workout_id
+
+        const newMapper = {
+            workout_id: chosenWorkout.id,
+            exercise_id: shownExercise.id,
+            reps: 0,
+            sets: 0,
+            weight: 0
+        }
+
+        fetch('/workout-mapper',{
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(newMapper)
+        })
+        .then(response => response.json())
+        .then(newMapper => {
+            console.log(newMapper)
+            alert(`${shownExercise.name} has been added to ${chosenWorkout.name}!`)
+        }) 
+    }
+
     return(
         <div className="exercise-view-container">
-            {/* Add the exercise video */}
             <div className="exercise-video-container">
                 <iframe width="560" height="315" src={shownExercise?.demo_url} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
-            <h1>{selectedExercise}</h1>
+            <div className="exercise-view-header">
+                <h1>{selectedExercise}</h1>
+                <select defaultValue={addToWorkout} onChange={handleChangeSelection}>
+                    <option value={addToWorkout} disabled hidden>Choose a Workout</option>
+                    {mapWorkoutOptions()}
+                </select>
+                <button onClick={addExerciseToWorkout}>Add to Workout</button>
+            </div>
             <h3>Description:</h3>
             <p>{shownExercise?.description}</p>
             <h3>Equipment Used:</h3>
@@ -40,40 +86,3 @@ function ExerciseView({selectedExercise}){
 }
 
 export default ExerciseView
-
-// For reference:
-
-// {id: 2, name: 'Forward Lunges', demo_url: 'https://www.youtube.com/embed/QE_hU8XX48I', description: 'This is a placeholder for the description', created_at: '2022-04-12T19:38:39.561Z', …}
-// created_at: "2022-04-12T19:38:39.561Z"
-// demo_url: "https://www.youtube.com/embed/QE_hU8XX48I"
-// description: "This is a placeholder for the description"
-// equipment_types: Array(2)
-// 0:
-// category: "Dumbbells"
-// created_at: "2022-04-12T19:38:39.784Z"
-// id: 1
-// image_url: ""
-// updated_at: "2022-04-12T19:38:39.784Z"
-// [[Prototype]]: Object
-// 1:
-// category: "No Equipment"
-// created_at: "2022-04-12T19:38:39.793Z"
-// id: 4
-// image_url: ""
-// updated_at: "2022-04-12T19:38:39.793Z"
-// [[Prototype]]: Object
-// length: 2
-// [[Prototype]]: Array(0)
-// id: 2
-// muscle_groups: Array(1)
-// 0:
-// created_at: "2022-04-12T19:38:39.695Z"
-// id: 7
-// name: "Legs"
-// updated_at: "2022-04-12T19:38:39.695Z"
-// [[Prototype]]: Object
-// length: 1
-// [[Prototype]]: Array(0)
-// name: "Forward Lunges"
-// updated_at: "2022-04-12T19:38:39.561Z"
-// [[Prototype]]: Object

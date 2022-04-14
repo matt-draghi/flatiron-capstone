@@ -2,16 +2,16 @@ import { useEffect, useState } from "react"
 import "../styles/Workouts.css"
 import WorkoutCard from "./WorkoutCard"
 
-function Workouts({user, selectedWorkout, setSelectedWorkout}){
+function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, workoutsList}){
 
-    const [workoutsList, setWorkoutsList] = useState([])
+    // const [workoutsList, setWorkoutsList] = useState([])
 
-    useEffect(()=>{
-        //Fetch the user's workouts and then map them to workout cards - will need to add images to workouts, exercises and equipment
-        fetch(`/workouts`)
-        .then(response => response.json())
-        .then(workouts => setWorkoutsList(workouts))
-    },[])
+    // useEffect(()=>{
+    //     //Fetch the user's workouts and then map them to workout cards - will need to add images to workouts, exercises and equipment
+    //     fetch(`/workouts`)
+    //     .then(response => response.json())
+    //     .then(workouts => setWorkoutsList(workouts))
+    // },[])
 
     const showWorkouts = () => {
         if(workoutsList.length > 0){
@@ -41,6 +41,7 @@ function Workouts({user, selectedWorkout, setSelectedWorkout}){
             setSelectedWorkout(workout.name)
             console.log("Selected workout: ", selectedWorkout)
             setWorkoutsList(workoutsList => [...workoutsList, workout])
+            localStorage.setItem('workoutsList', [...workoutsList, workout])
             window.location = `/workout/${workout.name}`
         })
     }

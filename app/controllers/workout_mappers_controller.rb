@@ -20,9 +20,22 @@ class WorkoutMappersController < ApplicationController
         end
     end
 
+    def create
+        mapper = WorkoutMapper.create(mapper_params)
+        if mapper.valid?
+            render json: mapper, status: :created
+        else
+            render json: {errors: mapper.errors.full_messages}, status: :unprocessable_entity
+        end
+    end
+
     private
 
     def update_params
         params.permit(:id, :reps, :sets, :weight)
+    end
+
+    def mapper_params
+        params.permit(:workout_id, :exercise_id, :reps, :sets, :weight)
     end
 end

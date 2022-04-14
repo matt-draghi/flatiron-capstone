@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   #WORKOUT MAPPER
   delete '/workout-mapper/:id', to: 'workout_mappers#destroy'
   patch '/workout-mapper/:id', to: 'workout_mappers#update'
+  post '/workout-mapper', to: 'workout_mappers#create'
 
   #EXERCISES 
   get '/exercises', to: 'exercises#index'
