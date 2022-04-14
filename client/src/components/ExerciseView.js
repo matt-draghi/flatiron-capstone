@@ -8,7 +8,7 @@ function ExerciseView({selectedExercise, workoutsList}){
 
     useEffect(()=>{
         // console.log(selectedExercise)
-        fetch (`/exercises/${selectedExercise}`)
+        fetch (`/api/exercises/${selectedExercise}`)
         .then(response => response.json())
         .then(exercise => {
             setShownExercise(exercise)
@@ -40,7 +40,7 @@ function ExerciseView({selectedExercise, workoutsList}){
             weight: 0
         }
 
-        fetch('/workout-mapper',{
+        fetch('/api/workout-mapper',{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"

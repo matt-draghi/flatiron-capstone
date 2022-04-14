@@ -5,7 +5,7 @@ function Sidebar({user, showSidebar, setShowSidebar}){
 
     const handleLogout = () => {
         //fetch request to destroy session
-        fetch('/logout',{
+        fetch('/api/logout',{
             method: "DELETE",
         })
         .then(()=> {

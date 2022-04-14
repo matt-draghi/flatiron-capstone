@@ -26,7 +26,7 @@ function SignUp({setUser}){
         e.preventDefault()
         setErrors([])
         // fetch post to create a new user
-        fetch('/users',{
+        fetch('/api/users',{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -46,7 +46,7 @@ function SignUp({setUser}){
             }
             else{
                 // nested fetch to create a session for the user
-                fetch('/login', {
+                fetch('/api/login', {
                     method: "POST",
                     headers: {
                         "Content-Type":"application/json"
