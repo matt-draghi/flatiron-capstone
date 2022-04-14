@@ -34,7 +34,7 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
             console.log("Selected workout: ", selectedWorkout)
             setWorkoutsList(workoutsList => [...workoutsList, workout])
             localStorage.setItem('workoutsList', [...workoutsList, workout])
-            window.location = `/workouts/${workout.name}`
+            // window.location = `/workouts/${workout.name}`
         })
     }
 

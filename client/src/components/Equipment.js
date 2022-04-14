@@ -3,7 +3,7 @@ import EquipmentCard from "./EquipmentCard"
 function Equipment({equipmentTypes, setSelectedEquipmentType}){
 
     const showEquipmentTypes = () => {
-        if(equipmentTypes.length > 0){
+        if(equipmentTypes?.length > 0){
             return equipmentTypes.map((equipmentType)=>{
                 return <EquipmentCard equipmentType={equipmentType} setSelectedEquipmentType={setSelectedEquipmentType}/>
             })
