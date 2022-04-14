@@ -12,6 +12,7 @@ import Account from './components/Account';
 import WorkoutView from './components/WorkoutView';
 import Exercises from './components/Exercises';
 import ExerciseView from './components/ExerciseView';
+import Equipment from './components/Equipment';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
   const [selectedWorkout, setSelectedWorkout] = useState(localStorage.getItem('selectedWorkout'))
   const [selectedExercise, setSelectedExercise] = useState(localStorage.getItem('selectedExercise'))
   const [workoutsList, setWorkoutsList] = useState(localStorage.getItem('workoutsList'))
+  const [equipmentTypes, setEquipmentTypes] = useState(localStorage.getItem('equipmentTypes'))
+  const [selectedEquipmentType, setSelectedEquipmentType] = useState(localStorage.getItem('selectedEquipmentType'))
 
 
   const hideSideBar = () => {
@@ -50,6 +53,15 @@ function App() {
           })
         })
       }
+    })
+    .then(()=>{
+      fetch(`/equipment-types`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setEquipmentTypes(data)
+        localStorage.setItem('equipmentTypes', data)
+      })
     })
   },[])
 
@@ -103,9 +115,9 @@ function App() {
             <ExerciseView selectedExercise={selectedExercise} workoutsList={workoutsList}/>
           </Route>
 
-          {/* <Route exact path="/equipment">
-            <Equipment />
-          </Route> */}
+          <Route exact path="/equipment">
+            <Equipment equipmentTypes={equipmentTypes} setSelectedEquipmentType={setSelectedEquipmentType}/>
+          </Route>
 
         </Switch>
       </div>

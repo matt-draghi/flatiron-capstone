@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react"
 import "../styles/Workouts.css"
 import WorkoutCard from "./WorkoutCard"
 
 function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, workoutsList}){
 
-    // const [workoutsList, setWorkoutsList] = useState([])
-
-    // useEffect(()=>{
-    //     //Fetch the user's workouts and then map them to workout cards - will need to add images to workouts, exercises and equipment
-    //     fetch(`/workouts`)
-    //     .then(response => response.json())
-    //     .then(workouts => setWorkoutsList(workouts))
-    // },[])
-
+    console.log(workoutsList)
     const showWorkouts = () => {
         if(workoutsList?.length > 0){
+            console.log(workoutsList)
             return workoutsList.map((workout)=>{
                 return <WorkoutCard workout={workout} setSelectedWorkout={setSelectedWorkout}/>
             })
@@ -48,12 +40,12 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
 
     if(user){
         return(
-            <div className="workouts-container">
-                <div className="workout-container-header">
+            <div className="list-container">
+                <div className="list-container-header">
                     <h1>Your Workouts</h1>
                     <button onClick={handleCreateWorkout}>Create Workout</button>
                 </div>
-                <div className="workouts-list-container">
+                <div className="card-list-container">
                     {showWorkouts()}
                 </div>
             </div>

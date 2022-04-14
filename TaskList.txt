@@ -9,6 +9,8 @@
   page for whatever they clicked on???
 - add filter on list pages for workouts, exercises, and equipment
 
+- add oauth to login
+
 
 STRETCH
 - implement dual factor or oauth login as extra piece

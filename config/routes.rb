@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   #EXERCISES 
   get '/exercises', to: 'exercises#index'
   get '/exercises/:id', to: 'exercises#show'
+
+  #EQUIPMENT TYPES
+  get 'equipment-types', to: 'equipment_types#index'
   
   # SESSIONS
   post '/login', to: 'sessions#create'

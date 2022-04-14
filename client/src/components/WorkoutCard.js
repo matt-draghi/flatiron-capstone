@@ -9,7 +9,7 @@ function WorkoutCard({workout, setSelectedWorkout}){
 
     return(
         // TODO: style this to have the hover effect and add image
-        <div className="workout-card-container">
+        <div className="card-container">
             <img/>
             <div className="middle">
                 <NavLink to={`/workouts/${workout.name}`} onClick={handleWorkoutSelect} className="text">{workout.name}</NavLink>

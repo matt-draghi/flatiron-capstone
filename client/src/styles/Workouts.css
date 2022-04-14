@@ -1,4 +1,4 @@
-.workouts-container{
+.list-container{
     height: 100%;
     width: 100%;
     display: flex;
@@ -7,13 +7,13 @@
     align-items: center;
 }
 
-.workouts-list-container{
+.card-list-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 30%;
     row-gap: 3em;
 }
 
-.workout-card-container{
+.card-container{
     outline: solid;
 }
