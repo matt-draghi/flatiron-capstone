@@ -26,7 +26,7 @@ function SignUp({setUser}){
         e.preventDefault()
         setErrors([])
         // fetch post to create a new user
-        fetch('/users',{
+        fetch('/users_rails',{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -46,7 +46,7 @@ function SignUp({setUser}){
             }
             else{
                 // nested fetch to create a session for the user
-                fetch('/login', {
+                fetch('/login_rails', {
                     method: "POST",
                     headers: {
                         "Content-Type":"application/json"

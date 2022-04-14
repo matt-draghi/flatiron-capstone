@@ -5,7 +5,7 @@ function Sidebar({user, showSidebar, setShowSidebar}){
 
     const handleLogout = () => {
         //fetch request to destroy session
-        fetch('/logout',{
+        fetch('/logout_rails',{
             method: "DELETE",
         })
         .then(()=> {

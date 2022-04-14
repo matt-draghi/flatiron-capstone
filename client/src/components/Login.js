@@ -18,7 +18,7 @@ function Login(){
         e.preventDefault()
         setErrors([])
         // fetch request to create session
-        fetch('/login', {
+        fetch('/login_rails', {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"

@@ -19,7 +19,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     useEffect(()=>{
         // console.log(workoutName)
-        fetch (`/workouts/${workoutName}`) //Grabs the workout mappers based on the decoded workout name
+        fetch (`/workouts_rails/${workoutName}`) //Grabs the workout mappers based on the decoded workout name
         .then(response => response.json())
         .then(workout => {
             const sortedWorkoutMapperArray = workout.workout_mappers.sort((workoutMapperA, workoutMapperB) => workoutMapperA.id - workoutMapperB.id)
@@ -29,7 +29,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     const handleDelete = (id) =>{
         if(modalShow == false){
-            fetch(`/workout-mapper/${id}`,{
+            fetch(`/workout-mapper_rails/${id}`,{
                 method: "DELETE"
             })
             .then(()=>{
@@ -48,7 +48,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
     }
 
     const handleUpdate = (id, updatedRepCount, updatedSetCount, updatedWeight) =>{
-        fetch(`/workout-mapper/${id}`,{
+        fetch(`/workout-mapper_rails/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-Type":"application/json"
@@ -101,7 +101,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     const handleNameChange = (e) =>{
         e.preventDefault()
-        fetch(`/workouts/${selectedWorkout}`,{
+        fetch(`/workouts_rails/${selectedWorkout}`,{
             method: "PATCH",
             headers: {
                 "Content-Type":"application/json"
@@ -121,7 +121,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     const handleDeleteWorkout = () => {
         console.log(workoutName)
-        fetch(`/workouts/${workoutName}`,{
+        fetch(`/workouts_rails/${workoutName}`,{
             method:"DELETE",
         })
         .then((response) => response.json())

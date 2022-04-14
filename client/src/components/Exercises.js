@@ -8,7 +8,7 @@ function Exercises({user, setSelectedExercise}){
 
     useEffect(()=>{
         //Fetch the user's workouts and then map them to workout cards - will need to add images to workouts, exercises and equipment
-        fetch(`/exercises`)
+        fetch(`/exercises_rails`)
         .then(response => response.json())
         .then(exercises => setExerciseList(exercises))
     },[])
