@@ -9,34 +9,34 @@ Rails.application.routes.draw do
   resources :workouts
   
   # USERS
-  post '/users_rails', to: 'users#create'
-  get '/me_rails', to: 'users#show'
-  patch '/users_rails/:id', to: 'users#update'
-  delete '/users_rails/:id', to: 'users#destroy'
+  post '/api/users', to: 'users#create'
+  get '/api/me', to: 'users#show'
+  patch '/api/users/:id', to: 'users#update'
+  delete '/api/users/:id', to: 'users#destroy'
 
   #WORKOUTS
   # get '/workouts' can create an index to pull all made workouts - allowing users to add workouts to their workout list
-  get '/workouts_rails', to: 'workouts#index'
-  get '/workouts_rails/:id', to: 'workouts#show'
-  post '/workouts_rails', to: 'workouts#create'
-  patch '/workouts_rails/:id', to: 'workouts#update'
-  delete '/workouts_rails/:id', to: 'workouts#destroy'
+  get '/api/workouts_', to: 'workouts#index'
+  get '/api/workouts_/:id', to: 'workouts#show'
+  post '/api/workouts_', to: 'workouts#create'
+  patch '/api/workouts_/:id', to: 'workouts#update'
+  delete '/api/workouts_/:id', to: 'workouts#destroy'
 
   #WORKOUT MAPPER
-  delete '/workout-mapper_rails/:id', to: 'workout_mappers#destroy'
-  patch '/workout-mapper_rails/:id', to: 'workout_mappers#update'
-  post '/workout-mapper_rails', to: 'workout_mappers#create'
+  delete '/api/workout-mapper/:id', to: 'workout_mappers#destroy'
+  patch '/api/workout-mapper/:id', to: 'workout_mappers#update'
+  post '/api/workout-mapper', to: 'workout_mappers#create'
 
   #EXERCISES 
-  get '/exercises_rails', to: 'exercises#index'
-  get '/exercises_rails/:id', to: 'exercises#show'
+  get '/api/exercises', to: 'exercises#index'
+  get '/api/exercises/:id', to: 'exercises#show'
 
   #EQUIPMENT TYPES
-  get 'equipment-types_rails', to: 'equipment_types#index'
+  get '/api/equipment-types', to: 'equipment_types#index'
   
   # SESSIONS
-  post '/login_rails', to: 'sessions#create'
-  delete '/logout_rails', to: 'sessions#destroy'
+  post '/api/login', to: 'sessions#create'
+  delete '/api/logout', to: 'sessions#destroy'
 
   # DEFAULT
   get '*path',

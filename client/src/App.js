@@ -36,7 +36,7 @@ function App() {
 
 
   useEffect(()=>{
-    fetch(`/me_rails`)
+    fetch(`/api/me`)
     .then(response => {
       if(response.ok){
         response.json().then((user)=>{
@@ -44,7 +44,7 @@ function App() {
           setUsername(user.username)
           setEmail(user.email)
 
-          fetch(`/workouts_rails`)
+          fetch(`/api/workouts`)
           .then(response => response.json())
           .then(workouts => {
             const sortedWorkouts = workouts.sort((workoutA, workoutB) => workoutA.id - workoutB.id)
@@ -55,7 +55,7 @@ function App() {
       }
     })
     .then(()=>{
-      fetch(`/equipment-types_rails`)
+      fetch(`/api/equipment-types`)
       .then(response => response.json())
       .then(data => {
         console.log(data)

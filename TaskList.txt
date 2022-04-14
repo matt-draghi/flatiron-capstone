@@ -1,4 +1,5 @@
 - add new data to seeded data (dummy image urls)
+- fix the routing issue on the hosted live app
 
 - create page for users to view equipment types (will be a list of the types)
 - when clickon one type, leads to page that shows all equipment of that type
