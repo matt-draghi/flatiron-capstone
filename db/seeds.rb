@@ -1,3 +1,13 @@
+User.destroy_all
+Workout.destroy_all
+Exercise.destroy_all
+WorkoutMapper.destroy_all
+MuscleGroup.destroy_all
+MuscleGroupMapper.destroy_all
+EquipmentType.destroy_all
+ExerciseMapper.destroy_all
+EquipmentPiece.destroy_all
+
 # Users
 u1 = User.create(username: "test1", email: "test1@test.com", password: "test", password_confirmation: "test")
 u2 = User.create(username: "test2", email: "test2@test.com", password: "test", password_confirmation: "test")
