@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/api/exercises/:id', to: 'exercises#show'
 
   #EQUIPMENT TYPES
-  get '/apiequipment-types', to: 'equipment_types#index'
+  get '/api/equipment-types', to: 'equipment_types#index'
   
   # SESSIONS
   post '/api/login', to: 'sessions#create'
