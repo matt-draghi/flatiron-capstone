@@ -7,7 +7,6 @@ function ExerciseView({selectedExercise, workoutsList}){
     const [chosenWorkout, setChosenWorkout] = useState()
 
     useEffect(()=>{
-        // console.log(selectedExercise)
         fetch (`/api/exercises/${selectedExercise}`)
         .then(response => response.json())
         .then(exercise => {
@@ -29,9 +28,7 @@ function ExerciseView({selectedExercise, workoutsList}){
     }
 
     const addExerciseToWorkout = () => {
-        // console.log(shownExercise) //grab the id from shown exercise to set as the exercise_id
-        // console.log(chosenWorkout) //grab the id from chosen workout to set as the workout_id
-
+  
         const newMapper = {
             workout_id: chosenWorkout.id,
             exercise_id: shownExercise.id,

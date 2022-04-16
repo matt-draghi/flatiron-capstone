@@ -9,4 +9,13 @@ class EquipmentTypesController < ApplicationController
         end
     end
 
+    def show
+        equipmentType = EquipmentType.find_by(category: params[:id])
+        if equipmentType
+            render json: equipmentType, include: [:equipment_pieces],status: :ok
+        else
+            render json: {error: equipmentTypes.error.full_messages}, status: :not_found
+        end
+    end
+
 end

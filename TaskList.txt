@@ -1,22 +1,19 @@
 - add new data to seeded data (dummy image urls)
-- fix the routing issue on the hosted live app
 
 - create page for users to view equipment types (will be a list of the types)
 - when clickon one type, leads to page that shows all equipment of that type
 - clicking on individual equipment pieces takes you to equipment page or modal popup with that equipments info
 
--have search bar functionality work to display a separate div below the search bar with
-  all results from workouts, equipment pieces and exercises, taking them to the individual
-  page for whatever they clicked on???
 - add filter on list pages for workouts, exercises, and equipment
-
 - add oauth to login
-
+- fix styling
 
 STRETCH
 - implement dual factor or oauth login as extra piece
 - add image uploading capabilities for playlists
 - create admin page for admins to add new exercises, equipment, etc.
 - use web scraping to populate equipment?
+-have search bar functionality work to display a separate div below the search bar with
+  all results from workouts, equipment pieces and exercises, taking them to the individual
+  page for whatever they clicked on???
 
-- fix styling

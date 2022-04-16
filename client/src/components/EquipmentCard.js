@@ -12,7 +12,7 @@ function EquipmentCard({equipmentType, setSelectedEquipmentType}){
         <div className="equipment-type-card-container">
             <img/>
             <div className="middle">
-                <NavLink to={`/equipment-type/${equipmentType.category}`} onClick={handleEquipmentTypeSelect} className="text">{equipmentType.category}</NavLink>
+                <NavLink to={`/equipment/${equipmentType.category}`} onClick={handleEquipmentTypeSelect} className="text">{equipmentType.category}</NavLink>
             </div>
         </div>
     )

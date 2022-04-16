@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   #EQUIPMENT TYPES
   get '/api/equipment-types', to: 'equipment_types#index'
+  get '/api/equipment-types/:id', to: 'equipment_types#show'
   
   # SESSIONS
   post '/api/login', to: 'sessions#create'

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from "react"
 import Header from "./components/Header"
@@ -13,6 +12,7 @@ import WorkoutView from './components/WorkoutView';
 import Exercises from './components/Exercises';
 import ExerciseView from './components/ExerciseView';
 import Equipment from './components/Equipment';
+import EquipmentList from './components/EquipmentList';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
   const [workoutsList, setWorkoutsList] = useState(localStorage.getItem('workoutsList'))
   const [equipmentTypes, setEquipmentTypes] = useState(JSON.parse(localStorage.getItem('equipmentTypes')))
   const [selectedEquipmentType, setSelectedEquipmentType] = useState(localStorage.getItem('selectedEquipmentType'))
-
+  const [selectedEquipmentPiece, setSelectedEquipmentPiece] = useState(localStorage.getItem('selectedEquipmentPiece'))
 
   const hideSideBar = () => {
     if(showSidebar === "show"){
@@ -102,7 +102,7 @@ function App() {
           </Route>
 
           <Route path={`/workouts/${selectedWorkout}`}>
-            <NavLink to='/workouts' className='workout-back-button'>Back to Workouts</NavLink>
+            <NavLink to='/workouts' className='back-button'>Back to Workouts</NavLink>
             <WorkoutView setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout}/>
           </Route>
 
@@ -111,12 +111,17 @@ function App() {
           </Route>
 
           <Route exact path={`/exercises/${selectedExercise}`}>
-            <NavLink to='/exercises' className='exercise-back-button'>Back to Exercises</NavLink>
+            <NavLink to='/exercises' className='back-button'>Back to Exercises</NavLink>
             <ExerciseView selectedExercise={selectedExercise} workoutsList={workoutsList}/>
           </Route>
 
           <Route exact path="/equipment">
             <Equipment equipmentTypes={equipmentTypes} setSelectedEquipmentType={setSelectedEquipmentType}/>
+          </Route>
+
+          <Route exact path={`/equipment/${selectedEquipmentType}`}>
+            <NavLink to='/equipment' className='back-button'>Back to Equipment Categories</NavLink>
+            <EquipmentList setSelectedEquipmentType={setSelectedEquipmentType} selectedEquipmentType={selectedEquipmentType} setSelectedEquipmentPiece={setSelectedEquipmentPiece}/>
           </Route>
 
         </Switch>
