@@ -6,7 +6,6 @@ function EquipmentList({setSelectedEquipmentPiece, selectedEquipmentType}){
     const [sort, setSort] = useState("name")
 
     useEffect(()=>{
-        // console.log(selectedEquipmentType)
         fetch (`/api/equipment-types/${selectedEquipmentType}`)
         .then(response => response.json())
         .then(equipmentType => {

@@ -1,15 +1,12 @@
 - add new data to seeded data (dummy image urls)
 
-- create page for users to view equipment types (will be a list of the types)
-- when clickon one type, leads to page that shows all equipment of that type
-- clicking on individual equipment pieces takes you to equipment page or modal popup with that equipments info
-
-- add filter on list pages for workouts, exercises, and equipment
+- grab daily workouts
+  - will need to create new controller for daily workout which
 - add oauth to login
 - fix styling
 
 STRETCH
-- implement dual factor or oauth login as extra piece
+- add filter on list pages for workouts, exercises
 - add image uploading capabilities for playlists
 - create admin page for admins to add new exercises, equipment, etc.
 - use web scraping to populate equipment?

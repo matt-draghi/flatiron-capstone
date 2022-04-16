@@ -1,6 +1,13 @@
+import { useEffect } from "react"
 import "../styles/Home.css"
 
 function Home(){
+
+    useEffect(()=>{
+        fetch('/api/exercises/daily')
+        .then(response => response.json())
+        .then(exercise => console.log(exercise))
+    },[])
 
     return(
         <div className="home-container">
