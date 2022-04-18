@@ -28,7 +28,46 @@ p.exercise-name{
     align-items: center;
 }
 
-.selected-workout-header{
+.workout-view-header{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.card-container .middle .text{
+    text-decoration: none;
+}
+
+.card-container .middle .text:hover{
+    text-decoration: none;
+    color: #FFF8DB;
+}
+
+.edit-workout-form{
+    display: flex;
+    flex-direction: column;
+    width:300px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.profile-save-button{
+    justify-self: flex-end;
+}
+
+.workout-edit-modal, .workout-delete-modal{
+    background-color: #FFF8DB;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.edit-name{
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-modal-buttons{
+    display: flex;
+    justify-content: space-between;
+}

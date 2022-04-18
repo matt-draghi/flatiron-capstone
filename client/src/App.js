@@ -1,8 +1,9 @@
+import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from "react"
 import Header from "./components/Header"
 import Home from './components/Home';
-import {Switch, Route, NavLink} from 'react-router-dom'
+import {Switch, Route, NavLink, useHistory} from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
@@ -23,10 +24,12 @@ function App() {
   const [showSidebar, setShowSidebar] = useState("hide")
   const [selectedWorkout, setSelectedWorkout] = useState(localStorage.getItem('selectedWorkout'))
   const [selectedExercise, setSelectedExercise] = useState(localStorage.getItem('selectedExercise'))
-  const [workoutsList, setWorkoutsList] = useState(localStorage.getItem('workoutsList'))
+  const [workoutsList, setWorkoutsList] = useState([])
   const [equipmentTypes, setEquipmentTypes] = useState(JSON.parse(localStorage.getItem('equipmentTypes')))
   const [selectedEquipmentType, setSelectedEquipmentType] = useState(localStorage.getItem('selectedEquipmentType'))
   const [selectedEquipmentPiece, setSelectedEquipmentPiece] = useState(localStorage.getItem('selectedEquipmentPiece'))
+  const history = useHistory()
+
 
   const hideSideBar = () => {
     if(showSidebar === "show"){
@@ -49,7 +52,6 @@ function App() {
           .then(workouts => {
             const sortedWorkouts = workouts.sort((workoutA, workoutB) => workoutA.id - workoutB.id)
             setWorkoutsList(sortedWorkouts)
-            localStorage.setItem('workoutList', sortedWorkouts)
           })
         })
       }
@@ -58,7 +60,6 @@ function App() {
       fetch(`/api/equipment-types`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setEquipmentTypes(data)
         localStorage.setItem('equipmentTypes', JSON.stringify(data))
       })
@@ -102,7 +103,7 @@ function App() {
           </Route>
 
           <Route path={`/workouts/${selectedWorkout}`}>
-            <NavLink to='/workouts' className='back-button'>Back to Workouts</NavLink>
+            <button onClick={()=> history.push(`/workouts`)}><span>Back to Workouts</span></button>
             <WorkoutView setSelectedWorkout={setSelectedWorkout} selectedWorkout={selectedWorkout}/>
           </Route>
 
@@ -111,7 +112,7 @@ function App() {
           </Route>
 
           <Route exact path={`/exercises/${selectedExercise}`}>
-            <NavLink to='/exercises' className='back-button'>Back to Exercises</NavLink>
+            <button onClick={()=> history.push(`/exercises`)} className='back-button'><span>Back to Exercises</span></button>
             <ExerciseView selectedExercise={selectedExercise} workoutsList={workoutsList}/>
           </Route>
 
@@ -120,7 +121,7 @@ function App() {
           </Route>
 
           <Route exact path={`/equipment/${selectedEquipmentType}`}>
-            <NavLink to='/equipment' className='back-button'>Back to Equipment Categories</NavLink>
+            <button onClick={()=> history.push(`/equipment`)}><span>Back to Equipment Categories</span></button>
             <EquipmentList setSelectedEquipmentType={setSelectedEquipmentType} selectedEquipmentType={selectedEquipmentType} setSelectedEquipmentPiece={setSelectedEquipmentPiece}/>
           </Route>
 

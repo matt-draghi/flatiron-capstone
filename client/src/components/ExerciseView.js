@@ -62,7 +62,7 @@ function ExerciseView({selectedExercise, workoutsList}){
                     <option value={addToWorkout} disabled hidden>Choose a Workout</option>
                     {mapWorkoutOptions()}
                 </select>
-                <button onClick={addExerciseToWorkout}>Add to Workout</button>
+                <button onClick={addExerciseToWorkout}><span>Add to Workout</span></button>
             </div>
             <h3>Description:</h3>
             <p>{shownExercise?.description}</p>

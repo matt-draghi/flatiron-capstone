@@ -3,10 +3,8 @@ import WorkoutCard from "./WorkoutCard"
 
 function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, workoutsList}){
 
-    console.log(workoutsList)
     const showWorkouts = () => {
-        if(workoutsList?.length > 0){
-            console.log(workoutsList)
+        if(workoutsList.length > 0){
             return workoutsList.map((workout)=>{
                 return <WorkoutCard workout={workout} setSelectedWorkout={setSelectedWorkout}/>
             })
@@ -42,8 +40,9 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
             <div className="list-container">
                 <div className="list-container-header">
                     <h1>Your Workouts</h1>
-                    <button onClick={handleCreateWorkout}>Create Workout</button>
+                    <button onClick={handleCreateWorkout}><span>Create Workout</span></button>
                 </div>
+                <br/>
                 <div className="card-list-container">
                     {showWorkouts()}
                 </div>

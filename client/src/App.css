@@ -2,20 +2,22 @@
   height: 100%;
   width: 100%;
   font-family: 'Gugi', cursive;
+  color: #410D03
 }
 
 html{
   height: 100%;
-  background-color: #878686;
+  background-color: #FFF8DB;
 }
 
-.back-button{
+/* .back-button{
   margin-top: 100px;
   text-decoration: none;
   border: solid;
   padding: 5px;
   border-radius: 20px;
-}
+} */
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap');

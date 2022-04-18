@@ -18,16 +18,16 @@ u5 = User.create(username: "test5", email: "test5@test.com", password: "test", p
 
 # Workouts
 
-w1 = Workout.create(name: "Workout1", user_id: u1.id, description: "This is a test description for this user's workout")
-w2 = Workout.create(name: "Workout2", user_id: u2.id, description: "This is a test description for this user's workout")
-w3 = Workout.create(name: "Workout3", user_id: u3.id, description: "This is a test description for this user's workout")
-w4 = Workout.create(name: "Workout4", user_id: u4.id, description: "This is a test description for this user's workout")
-w5 = Workout.create(name: "Workout5", user_id: u1.id, description: "This is a test description for this user's workout")
-w6 = Workout.create(name: "Workout6", user_id: u2.id, description: "This is a test description for this user's workout")
-w7 = Workout.create(name: "Workout7", user_id: u1.id, description: "This is a test description for this user's workout")
-w8 = Workout.create(name: "Workout8", user_id: u1.id, description: "This is a test description for this user's workout")
-w9 = Workout.create(name: "Workout9", user_id: u1.id, description: "This is a test description for this user's workout")
-w10 = Workout.create(name: "Workout10", user_id: u1.id, description: "This is a test description for this user's workout")
+w1 = Workout.create(name: "Workout1", user_id: u1.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg", description: "This is a test description for this user's workout")
+w2 = Workout.create(name: "Workout2", user_id: u2.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w3 = Workout.create(name: "Workout3", user_id: u3.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w4 = Workout.create(name: "Workout4", user_id: u4.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w5 = Workout.create(name: "Workout5", user_id: u1.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w6 = Workout.create(name: "Workout6", user_id: u2.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w7 = Workout.create(name: "Workout7", user_id: u1.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w8 = Workout.create(name: "Workout8", user_id: u1.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w9 = Workout.create(name: "Workout9", user_id: u1.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
+w10 = Workout.create(name: "Workout10", user_id: u1.id, image: "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg",description: "This is a test description for this user's workout")
 
 
 #Exercises

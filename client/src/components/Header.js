@@ -11,22 +11,22 @@ function Header({setShowSidebar}){
     return(
         <header className="header-container">
             <div className="menu-button-container" onClick={showSidebar}>
-                <div className="bar1"></div>
-                <div className="bar2"></div>
-                <div className="bar3"></div>
+                <div className="header-bar"></div>
+                <div className="header-bar"></div>
+                <div className="header-bar"></div>
             </div>
             <div className="app-name-header">
                 <div><NavLink to="/">Diem Fitness</NavLink></div>
             </div>
-            <div className="search-bar">
-                {/* Add search bar component that handles search functionality */}
-                {/* willl want the search to have a separate search display - the search display will render the 
+            {/* <div className="search-bar">
+                Add search bar component that handles search functionality
+                willl want the search to have a separate search display - the search display will render the 
                 search results - broken down into sections: workouts, exercises, equipment, and display a few
                 results - actual search functionality will be on the frontend, but viewable workouts and such
                 need to be done on the backend
-                */}
-                <input type="text" value="Search"/> {/* Placeholder */}
-            </div>
+               
+                <input type="text" value="Search"/> Placeholder
+            </div> */}
         </header>
     )
 }

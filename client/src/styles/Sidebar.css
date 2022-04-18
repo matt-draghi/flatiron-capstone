@@ -4,11 +4,12 @@
     flex-direction: column;
     left: 0;
     top: 0;
-    outline: solid;
+    outline: solid  #9A5130;
     height: 100%;
     width:20vh;
-    background-color: black;
-    z-index: 1;
+    background-color: #B93402;
+    z-index: 10;
+    overflow: hidden;
 }
 
 .sidebar .sidebar-menu-button-container{
@@ -16,21 +17,27 @@
     cursor: pointer;
     height: 7vh;
     margin-top: 2.5vh;
-    margin-left: 17vh;
+    margin-left: 90%;
 }
 
  .bar1, .bar2, .bar3{
     width: 30px;
     height: 3px;
-    background-color: white;
+    background-color: #FFE297;
     margin: 6px 0;
+    z-index: 6;
 }
 
-.nav-links a{
-    color: white;
+.sidebar .nav-links a{
+    color: #FFE297;
+    transition: color 0.3s ease-in;
     text-decoration: none;
-    font-size: 1.8rem;
-    /* font-size: 100%; */
+    font-size: 2rem;
+
+}
+
+.sidebar .nav-links a:hover{
+    color: #FFF8DB;
 }
 
 .sidebar ul li{
@@ -40,12 +47,13 @@
 
 .sidebar#hide{
     transform: translateX(-20vh);
-    transition: transform 0.5s ease-out, visibility 1s;
+    transition: transform 0.3s ease-out, visibility 1s;
     visibility: hidden;
 }
 
 .sidebar#show{
     transform: translateX(0px);
-    transition: transform 0.5s ease-out, visibility 0s;
+    transition: transform 0.4s ease-out, visibility 0s;
     visibility: visible;
 }
+

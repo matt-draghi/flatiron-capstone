@@ -1,8 +1,6 @@
 - add new data to seeded data (dummy image urls)
 
-- grab daily workouts
-  - will need to create new controller for daily workout which
-- add oauth to login
+- add oauth to login or some other unique technology / image uploading / email confirmation
 - fix styling
 
 STRETCH

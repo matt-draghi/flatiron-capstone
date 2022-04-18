@@ -1,10 +1,12 @@
-header{
-    height: 7vh;
-    width: 100%;
+.header-container{
+    height: 100px;
+    
     position: sticky;
     display: flex;
-    background-color: #A0ADBF;
+    background-color: #FFF8DB;
     margin-bottom: 10px;
+    top: 0;
+    outline: solid #410D03;
 }
 
 .menu-button-container{
@@ -14,22 +16,23 @@ header{
     margin-top: 2.5vh;
 }
 
-.bar1, .bar2, .bar3{
+.header-bar{
     width: 30px;
     height: 3px;
-    background-color: black;
+    background-color: #410D03;
     margin: 6px 0;
+    z-index: 4;
 }
 
 .app-name-header{
     align-self: center;
-    margin-left: 250px;
-    font-size: 2rem;
+    margin-left: 20vh;
+    font-size: 3rem;
 }
 
 .app-name-header a{
     text-decoration: none;
-    color: black;
+    color: #410D03;
     font-family: 'Gugi', cursive;
 }
 

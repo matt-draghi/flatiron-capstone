@@ -8,8 +8,8 @@ function ExerciseCard({exercise, setSelectedExercise}){
     }
 
     return(
-        <div className="exercise-card-container">
-            <img/>
+        <div className="card-container">
+            <img className="card-image" src={exercise.image} alt="exercise-image"/>
             <div className="middle">
                 <NavLink to={`/exercises/${exercise.name}`} onClick={handleExerciseSelect} className="text">{exercise.name}</NavLink>
             </div>

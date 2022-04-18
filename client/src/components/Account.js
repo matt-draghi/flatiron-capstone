@@ -20,8 +20,8 @@ function Account({user, setUser, username, setUsername, email, setEmail}){
                     {/* STRETCH TODO: Make it so user can edit their password */}
                 </div>
                 <div className='account-buttons'>
-                    <button onClick={() => setEditAccount(true)}>Edit Account</button>
-                    <button onClick={handleDeleteButton}>Delete Account</button>
+                    <button onClick={() => setEditAccount(true)}><span>Edit Account</span></button>
+                    <button onClick={handleDeleteButton}><span>Delete Account</span></button>
                 </div>
             </div>
         )
@@ -37,9 +37,10 @@ function Account({user, setUser, username, setUsername, email, setEmail}){
                     <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                     {/* STRETCH TODO: Make it so user can edit their password */}
                 </form>
+                <br/>
                 <div className='account-buttons'>
-                    <button onClick={updateAccount}>Save Changes</button>
-                    <button onClick={cancelChanges}>Cancel</button>
+                    <button onClick={updateAccount}><span>Save Changes</span></button>
+                    <button onClick={cancelChanges}><span>Cancel</span></button>
                 </div>
             </div>
         )
@@ -138,12 +139,12 @@ function Account({user, setUser, username, setUsername, email, setEmail}){
                     <div className='input-container'>
                         <form className='delete-form' onSubmit={deleteAccount}>
                             <input type="password" value={password} onChange={handlePasswordInput}/>
-                        
+                            <br/>
                             <div className='delete-buttons'>
-                                <input type="submit" value="Yes, delete my account"/>
+                                <button type="submit"><span>Yes, delete my account</span></button>
                             </div>
                         </form>
-                        <button onClick={closeModal}>Nope</button>
+                        <button onClick={closeModal}><span>Nope</span></button>
                     </div>
 
                 </dialog>

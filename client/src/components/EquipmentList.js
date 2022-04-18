@@ -22,7 +22,6 @@ function EquipmentList({setSelectedEquipmentPiece, selectedEquipmentType}){
             else{
                 sortedEquipmentPieceArray = equipmentPieceArray.sort((equipmentPieceA, equipmentPieceB)=> equipmentPieceA.price - equipmentPieceB.price)
             }
-            console.log(sortedEquipmentPieceArray)
             return sortedEquipmentPieceArray.map((equipmentPiece)=>{
                 return <EquipmentPieceCard equipmentPiece={equipmentPiece} />
             })

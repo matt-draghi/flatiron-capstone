@@ -43,7 +43,7 @@ function ExerciseRow({exercise, reps, sets, weight, handleDelete, id, setModalSh
     return(
         <div className="exercise-row">
             <p className="exercise-name">{exercise.name}</p>
-            <button className="demo-button" onClick={showDemo}>Demo</button>
+            <button className="demo-button" onClick={showDemo}><span>Demo</span></button>
             <p>Reps:
                 <select defaultValue={updateReps} onChange={handleSetReps} className="option-selector">
                     {createOptions()}
@@ -61,7 +61,7 @@ function ExerciseRow({exercise, reps, sets, weight, handleDelete, id, setModalSh
                     {createOptions()}
                 </select>
             lbs.</p>
-            <button onClick={()=>handleDelete(id)}>Remove Exercise</button> 
+            <button onClick={()=>handleDelete(id)}><span>Remove Exercise</span></button> 
 
         </div>
     )

@@ -111,7 +111,7 @@ function SignUp({setUser}){
                 <input type={passwordConfirmationType} value={passwordConfirmation} onChange={e=>setPasswordConfirmation(e.target.value)}/>{showIconConf}<br/>
                 </div>
 
-                <input type="submit" value="Create Account"/>
+                <button type="submit" value="Create Account"><span>Create Account</span></button>
                 {/* On submit, send request to create user and log that user in (create session) */}
             </form>
         </div>

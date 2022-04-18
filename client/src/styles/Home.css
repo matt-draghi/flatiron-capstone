@@ -14,6 +14,6 @@
 .eotd-video{
     width: 900px;
     height: 600px;
-    outline: solid;
-    background-color: white;
+    outline: groove;
+    background-color: black;
 }

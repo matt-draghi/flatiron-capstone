@@ -63,9 +63,12 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
     const editWorkout = () => {
         setNameModalShow(true)
+        setDeleteModalShow(false)
+
     }
 
     const deleteWorkout = () =>{
+        setNameModalShow(false)
         setDeleteModalShow(true)
     }
 
@@ -89,7 +92,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
                     <dialog open={modalShow} className='exercise-modal'>
                         <div className="inner-modal">
                             <div className='modal-header'>
-                                <button onClick={closeModal}>x</button>
+                                <button onClick={closeModal}><span>x</span></button>
                             </div>
                             <iframe width="560" height="315" src={videoPlaying} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
@@ -127,7 +130,6 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         .then((response) => response.json())
         .then(()=>{
             setDeleteModalShow(false)
-            // history.push(`/workouts`)
             window.location = `/workouts`
         })
     }
@@ -136,20 +138,27 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         <>
             <div className="workout-view-header">
                 <h1 className='selected-workout-header'>{selectedWorkout}</h1>
-                <button onClick={editWorkout}>Edit Workout Name</button>
-                    <dialog open={nameModalShow} className='workout-name-modal'>
-                        <form onSubmit={handleNameChange}>
-                            <label>Edit Workout Name</label>
-                            <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
-                            <input type="submit" value="Save"/>
-                        </form>
-                    </dialog>
-                <button onClick={deleteWorkout}>Delete Workout</button>
-                    <dialog open={deleteModalShow} className='workout-delete-modal'>
-                        <h3>Are you sure you want to delete this workout?</h3>
-                        <button onClick={handleDeleteWorkout}>Yes</button>
-                        <button onClick={()=>setDeleteModalShow(false)}>No</button>
-                    </dialog>
+                <div className="workout-view-buttons">
+                    <button onClick={editWorkout}><span>Edit Workout</span></button>
+                        <dialog open={nameModalShow} className='workout-edit-modal'>
+                            <form className="edit-workout-form" onSubmit={handleNameChange}>
+                                <div className="edit-name">
+                                    <label>Edit Workout Name</label>
+                                    <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
+                                </div>
+                                <button className="profile-save-button" type="submit" value="Save"><span>Save</span></button>
+                            </form>
+                        </dialog>
+                    <button onClick={deleteWorkout}><span>Delete Workout</span></button>
+                        <dialog open={deleteModalShow} className='workout-delete-modal'>
+                            <h3>Are you sure you want to delete this workout?</h3>
+                            <div className="delete-modal-buttons">
+                                <button onClick={handleDeleteWorkout}><span>Yes</span></button>
+                                <button onClick={()=>setDeleteModalShow(false)}><span>No</span></button>
+                            </div>
+                        </dialog>
+                </div>
+                    
             </div>
             <div className="workout-exercise-list" >
                 {listExercises()}

@@ -9,11 +9,37 @@
 
 .card-list-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 30%;
+    grid-template-columns: 1fr 1fr 1fr ;
+    column-gap: 10%;
     row-gap: 3em;
 }
 
 .card-container{
-    outline: solid;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image{
+    border: solid #E7E393;
+    height: 300px;
+    width: 300px;
+    border-radius: 15px;
+    align-self: center;
+}
+
+.card-image:hover .card-image{
+    opacity: 0.3;
+}
+  
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B93402;
+    text-align: center;
+    color: white;
+    font-size: 1.4rem;
+    border-radius: 15px;
 }
