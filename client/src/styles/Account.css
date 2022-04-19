@@ -69,7 +69,7 @@ button {
   opacity: 1;
   outline: 0;
   padding: 1.5em 2.2em;
-  position: relative;
+  position:relative;
   text-align: center;
   text-decoration: none;
   text-rendering: geometricprecision;
@@ -80,6 +80,7 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
+  z-index: 3;
 }
 
 button:before {

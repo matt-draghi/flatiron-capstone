@@ -8,11 +8,10 @@ function ExerciseCard({exercise, setSelectedExercise}){
     }
 
     return(
-        <div className="card-container">
-            <img className="card-image" src={exercise.image} alt="exercise-image"/>
-            <div className="middle">
-                <NavLink to={`/exercises/${exercise.name}`} onClick={handleExerciseSelect} className="text">{exercise.name}</NavLink>
-            </div>
+        <div className="exercise-list">
+            <NavLink to={`/exercises/${exercise.name}`} onClick={handleExerciseSelect} className="text">
+                <p>{exercise.name}</p>
+            </NavLink>
         </div>
     )
 }

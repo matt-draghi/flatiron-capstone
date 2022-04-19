@@ -33,7 +33,6 @@ class WorkoutsController < ApplicationController
     def update
         user = User.find_by(id: session[:user_id])
         workout = user.workouts.find_by(name: params[:id])
-
         if workout
             workout.update(update_params)
             render json: workout, status: :ok

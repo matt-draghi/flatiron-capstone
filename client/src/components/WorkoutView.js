@@ -111,8 +111,10 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         e.preventDefault()
 
         const formData = new FormData()
-        formData.append('nane', editedName)
-        formData.append('image', editedImage)
+        formData.append('name', editedName)
+        if(editedImage){
+            formData.append('image', editedImage)
+        }
 
         fetch(`/api/workouts/${selectedWorkout}`,{
             method: "PATCH",
@@ -120,7 +122,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            console.log("this is it", data)
             localStorage.setItem('selectedWorkout', data.name)
             setSelectedWorkout(data.name)
             // history.push(`/workouts/${data.name}`)
@@ -141,14 +143,13 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         })
     }
     
-    console.log(fullWorkoutInfo)
-
     const handleImageChange = (e) => {
         setEditedImage(e.target.files[0])
     }
 
     return(
         <>
+        
             <div className="workout-view-header">
                 <div>
                     <img src={displayedImage}/>
@@ -158,13 +159,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
                     <button onClick={editWorkout}><span>Edit Workout</span></button>
                         
                     <button onClick={deleteWorkout}><span>Delete Workout</span></button>
-      
-                </div>
-                 
-            </div>
-            <div className="workout-exercise-list" >
-                {listExercises()} 
-                <dialog open={modalShow} className='exercise-modal'>
+                  <dialog open={modalShow} className='exercise-modal'>
                         <div className="inner-modal">
                             <div className='modal-header'>
                                 <button onClick={closeModal}><span>x</span></button>
@@ -191,7 +186,14 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
                         <button onClick={()=>setDeleteModalShow(false)}><span>No</span></button>
                     </div>
                 </dialog>
+                </div>
+                 
             </div>
+            <div className="workout-exercise-list" >
+                {listExercises()} 
+                
+            </div>
+
         </>
 
     )

@@ -15,14 +15,16 @@ function EquipmentList({setSelectedEquipmentPiece, selectedEquipmentType}){
 
     const displayEquipmentPieces = () => {
         if(equipmentPieceArray?.length > 0){
-            let sortedEquipmentPieceArray = []
-            if(sort === "name"){
-                sortedEquipmentPieceArray = equipmentPieceArray.sort((equipmentPieceA, equipmentPieceB)=> equipmentPieceA.name - equipmentPieceB.name)
-            }
-            else{
-                sortedEquipmentPieceArray = equipmentPieceArray.sort((equipmentPieceA, equipmentPieceB)=> equipmentPieceA.price - equipmentPieceB.price)
-            }
-            return sortedEquipmentPieceArray.map((equipmentPiece)=>{
+            // let sortedEquipmentPieceArray = equipmentPieceArray
+            // if(sort === "name"){
+            //     console.log("By name", sortedEquipmentPieceArray)
+            //     sortedEquipmentPieceArray = equipmentPieceArray.sort((equipmentPieceA, equipmentPieceB)=> equipmentPieceA.name[0] - equipmentPieceB.name[0])
+            // }
+            // else if(sort === "price"){
+            //     console.log("By price", sortedEquipmentPieceArray)
+            //     sortedEquipmentPieceArray = equipmentPieceArray.sort((equipmentPieceA, equipmentPieceB)=> equipmentPieceA.price - equipmentPieceB.price)
+            // }
+            return equipmentPieceArray.map((equipmentPiece)=>{
                 return <EquipmentPieceCard equipmentPiece={equipmentPiece} />
             })
         }
@@ -37,13 +39,13 @@ function EquipmentList({setSelectedEquipmentPiece, selectedEquipmentType}){
         <div className='list-container'>
             <div className='list-container-header'>
                 <h1>{selectedEquipmentType}</h1>
-                <form>
+                {/* <form>
                     <label>Sort by:</label>
                     <select defaultValue={sort} onChange={(e)=>setSort(e.target.value)}>
                         <option value="name">Name</option>
                         <option value="price">Price</option>
                     </select>
-                </form>
+                </form> */}
             </div>
             <div className='card-list-container'>
                 {displayEquipmentPieces()}
