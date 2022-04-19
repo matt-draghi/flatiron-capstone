@@ -26,10 +26,10 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
         })
         .then(response => response.json())
         .then(workout => {
-            console.log("Encoded", encodeURI(workout.name))
+            // console.log("Encoded", encodeURI(workout.name))
             localStorage.setItem('selectedWorkout', workout.name)
             setSelectedWorkout(workout.name)
-            console.log("Selected workout: ", selectedWorkout)
+            // console.log("Selected workout: ", selectedWorkout)
             setWorkoutsList(workoutsList => [...workoutsList, workout])
             localStorage.setItem('workoutsList', [...workoutsList, workout])
         })

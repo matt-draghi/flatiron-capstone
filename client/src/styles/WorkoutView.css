@@ -60,6 +60,7 @@ p.exercise-name{
     background-color: #FFF8DB;
     height: 150px;
     border-radius: 20px;
+    z-index: 10;
 }
 
 .edit-name{
@@ -70,4 +71,10 @@ p.exercise-name{
 .delete-modal-buttons{
     display: flex;
     justify-content: space-between;
+}
+
+.workout-view-header img{
+    height: 100px;
+    width: 100px;
+    border-radius: 9px;
 }

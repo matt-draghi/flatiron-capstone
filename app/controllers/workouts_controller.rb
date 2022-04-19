@@ -21,7 +21,6 @@ class WorkoutsController < ApplicationController
         workout.user_id = session[:user_id]
         userWorkoutsArray = Workout.all.select{|workout| workout.user_id == session[:user_id]}
         workout.name = "Workout #{userWorkoutsArray.length + 1}"
-        workout.image = "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg"
         
         if workout.valid?
             workout.save
@@ -58,7 +57,7 @@ class WorkoutsController < ApplicationController
     private
 
     def update_params
-        params.permit(:name)
+        params.permit(:name, :image)
     end
 
 end

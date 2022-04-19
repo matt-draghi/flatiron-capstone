@@ -13,7 +13,10 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
     const [nameModalShow, setNameModalShow] = useState(false)
     const [deleteModalShow, setDeleteModalShow] = useState(false)
     const [editedName, setEditedName] = useState(selectedWorkout)
+    const [editedImage, setEditedImage] = useState("")
     const history = useHistory()
+    const [fullWorkoutInfo, setFullWorkoutInfo] = useState()
+    const [displayedImage, setDisplayedImage] = useState("https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg")
 
 
 
@@ -24,6 +27,10 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         .then(workout => {
             const sortedWorkoutMapperArray = workout.workout_mappers.sort((workoutMapperA, workoutMapperB) => workoutMapperA.id - workoutMapperB.id)
             setWorkoutMapperArray(sortedWorkoutMapperArray)
+            setFullWorkoutInfo(workout)
+            if(workout.image){
+                setDisplayedImage(workout.image.url)
+            }
         })
     },[])
 
@@ -72,11 +79,16 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
         setDeleteModalShow(true)
     }
 
+    const closeModals = () => {
+        setNameModalShow(false)
+        setDeleteModalShow(false)
+    }
+
     const listExercises = () => {
         return workoutMapperArray?.map((workoutMapper)=>{
           
             return(
-                <>
+                <div onClick={closeModals}>
                     <ExerciseRow 
                         handleDelete={handleDelete}
                         handleUpdate={handleUpdate}
@@ -89,35 +101,30 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
                         videoPlaying={videoPlaying}
                         setVideoPlaying={setVideoPlaying}
                     />
-                    <dialog open={modalShow} className='exercise-modal'>
-                        <div className="inner-modal">
-                            <div className='modal-header'>
-                                <button onClick={closeModal}><span>x</span></button>
-                            </div>
-                            <iframe width="560" height="315" src={videoPlaying} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                        </div>
-                    </dialog>
-                </>
+
+                </div>
             )
         })
     }
 
-    const handleNameChange = (e) =>{
+    const handleWorkoutChange = (e) =>{
         e.preventDefault()
+
+        const formData = new FormData()
+        formData.append('nane', editedName)
+        formData.append('image', editedImage)
+
         fetch(`/api/workouts/${selectedWorkout}`,{
             method: "PATCH",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                name: editedName
-            }) 
+            body: formData 
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             localStorage.setItem('selectedWorkout', data.name)
             setSelectedWorkout(data.name)
-            history.push(`/workouts/${data.name}`)
+            // history.push(`/workouts/${data.name}`)
+            window.location = '/workouts'
         })
         setNameModalShow(false)
     }
@@ -133,35 +140,57 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
             window.location = `/workouts`
         })
     }
+    
+    console.log(fullWorkoutInfo)
+
+    const handleImageChange = (e) => {
+        setEditedImage(e.target.files[0])
+    }
 
     return(
         <>
             <div className="workout-view-header">
-                <h1 className='selected-workout-header'>{selectedWorkout}</h1>
+                <div>
+                    <img src={displayedImage}/>
+                    <h1 className='selected-workout-header'>{selectedWorkout}</h1>
+                </div>
                 <div className="workout-view-buttons">
                     <button onClick={editWorkout}><span>Edit Workout</span></button>
-                        <dialog open={nameModalShow} className='workout-edit-modal'>
-                            <form className="edit-workout-form" onSubmit={handleNameChange}>
-                                <div className="edit-name">
-                                    <label>Edit Workout Name</label>
-                                    <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
-                                </div>
-                                <button className="profile-save-button" type="submit" value="Save"><span>Save</span></button>
-                            </form>
-                        </dialog>
+                        
                     <button onClick={deleteWorkout}><span>Delete Workout</span></button>
-                        <dialog open={deleteModalShow} className='workout-delete-modal'>
-                            <h3>Are you sure you want to delete this workout?</h3>
-                            <div className="delete-modal-buttons">
-                                <button onClick={handleDeleteWorkout}><span>Yes</span></button>
-                                <button onClick={()=>setDeleteModalShow(false)}><span>No</span></button>
-                            </div>
-                        </dialog>
+      
                 </div>
-                    
+                 
             </div>
             <div className="workout-exercise-list" >
-                {listExercises()}
+                {listExercises()} 
+                <dialog open={modalShow} className='exercise-modal'>
+                        <div className="inner-modal">
+                            <div className='modal-header'>
+                                <button onClick={closeModal}><span>x</span></button>
+                            </div>
+                            <iframe width="560" height="315" src={videoPlaying} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        </div>
+                    </dialog>
+                <dialog open={nameModalShow} className='workout-edit-modal'>
+                    <form className="edit-workout-form" onSubmit={handleWorkoutChange}>
+                        <div className="edit-name">
+                            <label>Edit Workout Name</label>
+                            <input type="text" value={editedName} onChange={e => setEditedName(e.target.value)}/>
+                            <br/>
+                            <label>Edit Workout Image</label>
+                            <input type="file" accept="image/*" multiple={false} onChange={handleImageChange}/>
+                        </div>
+                        <button className="profile-save-button" type="submit" value="Save"><span>Save</span></button>
+                    </form>
+                </dialog>
+                <dialog open={deleteModalShow} className='workout-delete-modal'>
+                    <h3>Are you sure you want to delete this workout?</h3>
+                    <div className="delete-modal-buttons">
+                        <button onClick={handleDeleteWorkout}><span>Yes</span></button>
+                        <button onClick={()=>setDeleteModalShow(false)}><span>No</span></button>
+                    </div>
+                </dialog>
             </div>
         </>
 

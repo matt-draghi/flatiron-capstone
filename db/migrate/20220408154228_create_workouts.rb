@@ -4,7 +4,7 @@ class CreateWorkouts < ActiveRecord::Migration[7.0]
       t.string :name
       t.integer :user_id
       t.string :description
-      t.string :image
+      # t.string :image
 
       t.timestamps
     end
