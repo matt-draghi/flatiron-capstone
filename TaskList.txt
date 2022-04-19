@@ -1,7 +1,3 @@
-- add new data to seeded data (dummy image urls)
-
-- add oauth to login or some other unique technology / image uploading / email confirmation
-- fix styling
 
 STRETCH
 - add filter on list pages for workouts, exercises
@@ -11,4 +7,8 @@ STRETCH
 -have search bar functionality work to display a separate div below the search bar with
   all results from workouts, equipment pieces and exercises, taking them to the individual
   page for whatever they clicked on???
+- Create hiit timer
+
+SUPER STRETCH 
+- Allow users to generate a random workout based on different criteria
 
