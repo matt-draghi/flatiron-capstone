@@ -25,7 +25,7 @@ function EquipmentList({setSelectedEquipmentPiece, selectedEquipmentType}){
             //     sortedEquipmentPieceArray = equipmentPieceArray.sort((equipmentPieceA, equipmentPieceB)=> equipmentPieceA.price - equipmentPieceB.price)
             // }
             return equipmentPieceArray.map((equipmentPiece)=>{
-                return <EquipmentPieceCard equipmentPiece={equipmentPiece} />
+                return <EquipmentPieceCard key={equipmentPiece.name + equipmentPiece.id} equipmentPiece={equipmentPiece} />
             })
         }
         else{

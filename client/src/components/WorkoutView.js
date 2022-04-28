@@ -90,6 +90,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
             return(
                 <div onClick={closeModals}>
                     <ExerciseRow 
+                        // key={workoutMapper.id}
                         handleDelete={handleDelete}
                         handleUpdate={handleUpdate}
                         id={workoutMapper.id}
