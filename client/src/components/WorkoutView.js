@@ -21,7 +21,6 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
 
 
     useEffect(()=>{
-        // console.log(workoutName)
         fetch (`/api/workouts/${workoutName}`) //Grabs the workout mappers based on the decoded workout name
         .then(response => response.json())
         .then(workout => {
@@ -90,7 +89,7 @@ function WorkoutView({setSelectedWorkout, selectedWorkout}){
             return(
                 <div onClick={closeModals}>
                     <ExerciseRow 
-                        // key={workoutMapper.id}
+                        key={String(workoutMapper.id)}
                         handleDelete={handleDelete}
                         handleUpdate={handleUpdate}
                         id={workoutMapper.id}
