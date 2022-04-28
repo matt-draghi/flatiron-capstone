@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import EquipmentCard from "./EquipmentCard"
 
-function Equipment({equipmentTypes, setSelectedEquipmentType}){
+function Equipment({equipmentTypes, setEquipmentTypes, setSelectedEquipmentType}){
 
     useEffect(()=>{
         fetch(`/api/equipment-types`)

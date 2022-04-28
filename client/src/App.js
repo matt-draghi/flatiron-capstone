@@ -103,7 +103,7 @@ function App() {
           </Route>
 
           <Route exact path="/equipment">
-            <Equipment equipmentTypes={equipmentTypes} setSelectedEquipmentType={setSelectedEquipmentType}/>
+            <Equipment setEquipmentTypes={setEquipmentTypes} equipmentTypes={equipmentTypes} setSelectedEquipmentType={setSelectedEquipmentType}/>
           </Route>
 
           <Route exact path={`/equipment/${selectedEquipmentType}`}>
