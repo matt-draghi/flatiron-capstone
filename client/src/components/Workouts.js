@@ -1,7 +1,19 @@
+import { useEffect } from "react"
 import "../styles/Workouts.css"
 import WorkoutCard from "./WorkoutCard"
 
 function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, workoutsList}){
+
+    useEffect(()=>{
+        if(user){
+          fetch(`/api/workouts`)
+          .then(response => response.json())
+          .then(workouts => {
+            const sortedWorkouts = workouts.sort((workoutA, workoutB) => workoutA.id - workoutB.id)
+            setWorkoutsList(sortedWorkouts)
+          })
+        }
+    })
 
     const showWorkouts = () => {
         if(workoutsList.length > 0){

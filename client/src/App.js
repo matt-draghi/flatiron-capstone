@@ -47,22 +47,8 @@ function App() {
           setUsername(user.username)
           setEmail(user.email)
 
-          fetch(`/api/workouts`)
-          .then(response => response.json())
-          .then(workouts => {
-            const sortedWorkouts = workouts.sort((workoutA, workoutB) => workoutA.id - workoutB.id)
-            setWorkoutsList(sortedWorkouts)
-          })
         })
       }
-    })
-    .then(()=>{
-      fetch(`/api/equipment-types`)
-      .then(response => response.json())
-      .then(data => {
-        setEquipmentTypes(data)
-        localStorage.setItem('equipmentTypes', JSON.stringify(data))
-      })
     })
   },[])
 

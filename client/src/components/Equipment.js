@@ -1,6 +1,16 @@
+import { useEffect } from "react"
 import EquipmentCard from "./EquipmentCard"
 
 function Equipment({equipmentTypes, setSelectedEquipmentType}){
+
+    useEffect(()=>{
+        fetch(`/api/equipment-types`)
+        .then(response => response.json())
+        .then(data => {
+          setEquipmentTypes(data)
+          localStorage.setItem('equipmentTypes', JSON.stringify(data))
+        })
+    })
 
     const showEquipmentTypes = () => {
         if(equipmentTypes?.length > 0){
