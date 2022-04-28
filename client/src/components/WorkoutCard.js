@@ -11,7 +11,6 @@ function WorkoutCard({workout, setSelectedWorkout}){
     const displayedImage = workout.image ? workout.image.url : "https://content3.jdmagicbox.com/comp/def_content/gymnasiums/default-gymnasiums-5.jpg"
 
     return(
-        // TODO: style this to have the hover effect and add image
         <div className="card-container" >
             <NavLink to={`/workouts/${workout.name}`} onClick={handleWorkoutSelect} className="text">
             <img className="card-image" src={displayedImage} alt="workout-image"/>

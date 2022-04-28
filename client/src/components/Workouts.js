@@ -6,8 +6,7 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
     const showWorkouts = () => {
         if(workoutsList.length > 0){
             return workoutsList.map((workout)=>{
-                //updated
-                return <WorkoutCard key={workout.name + workout.id} workout={workout} setSelectedWorkout={setSelectedWorkout}/>
+                return <WorkoutCard key={workout.id} workout={workout} setSelectedWorkout={setSelectedWorkout}/>
             })
         }
         else{
