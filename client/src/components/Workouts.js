@@ -1,8 +1,11 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import "../styles/Workouts.css"
 import WorkoutCard from "./WorkoutCard"
 
 function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, workoutsList}){
+
+    const [showGenerateWorkoutModal, setShowGenerateWorkoutModal] = useState(false)
+    const [backCount, setBackCount] = useState("0")
 
     useEffect(()=>{
         if(user){
@@ -47,12 +50,25 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
         })
     }
 
+    const handleCreateRandomWorkout = () => {
+       setShowGenerateWorkoutModal(true)
+    }
+
     if(user){
         return(
             <div className="list-container">
                 <div className="list-container-header">
                     <h1>Your Workouts</h1>
                     <button onClick={handleCreateWorkout}><span>Create Workout</span></button>
+                    <button onClick={handleCreateRandomWorkout}><span>Generate Random Workout</span></button>
+                    <dialog open={showGenerateWorkoutModal}>
+                         <div>
+                             <h2>Select Your Exercises</h2>
+                             <h3>Back Exercises</h3>
+                             <input type="text" value={backCount} onChange={(e)=>setBackCount(e.target.value)}/>
+                             <input type="range" min="0" max="10" value={backCount} class="slider" onChange={(e)=>setBackCount(e.target.value)}/>
+                         </div>
+                    </dialog>
                 </div>
                 <br/>
                 <div className="card-list-container">

@@ -1,7 +1,6 @@
 
 STRETCH
 - add filter on list pages for workouts, exercises
-- add image uploading capabilities for playlists
 - create admin page for admins to add new exercises, equipment, etc.
 - use web scraping to populate equipment?
 -have search bar functionality work to display a separate div below the search bar with
@@ -12,3 +11,9 @@ STRETCH
 SUPER STRETCH 
 - Allow users to generate a random workout based on different criteria
 
+
+
+TASKS
+1. Add ui elements for random workou
+    - slider under each muscle group type???
+2. Create Admin page for admins to add new exercises
