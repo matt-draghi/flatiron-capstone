@@ -76,6 +76,13 @@ function Workouts({user, selectedWorkout, setSelectedWorkout, setWorkoutsList, w
         
         console.log(randomWorkout)
         // add fetch to /api/generate-workout
+        // fetch('api/generate-workout',{
+        //     method: "POST",
+        //     headers:{
+        //         "Content-Type":"application/json"
+        //     },
+        //     body: JSON.stringify(randomWorkout)
+        // })
         
     }
 

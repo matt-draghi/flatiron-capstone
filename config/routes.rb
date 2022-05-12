@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   delete '/api/workouts/:id', to: 'workouts#destroy'
   #do we want to add a route here or create a new controller to handle the workout generate based on user
   #conditions? 
-
-  #post '/api/generate-workout', to: 'generate_workout#create
+  # post '/api/generate-workout', to: 'generate_workout#create
 
   #WORKOUT MAPPER
   delete '/api/workout-mapper/:id', to: 'workout_mappers#destroy'
