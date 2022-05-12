@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  #add :api as a scope??
   # USERS
   post '/api/users', to: 'users#create'
   get '/api/me', to: 'users#show'
@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   post '/api/workouts', to: 'workouts#create'
   patch '/api/workouts/:id', to: 'workouts#update'
   delete '/api/workouts/:id', to: 'workouts#destroy'
+  #do we want to add a route here or create a new controller to handle the workout generate based on user
+  #conditions? 
+
+  #post '/api/generate-workout', to: 'generate_workout#create
 
   #WORKOUT MAPPER
   delete '/api/workout-mapper/:id', to: 'workout_mappers#destroy'

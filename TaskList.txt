@@ -1,5 +1,6 @@
 Tasks
 - Allow users to generate a random workout based on different criteria
+      - sliders and modal created: need to send data to backend and build workout based on criteria
 - add filter on list pages for workouts, exercises
 - create admin page for admins to add new exercises, equipment, etc.
 -have search bar functionality work to display a separate div below the search bar with

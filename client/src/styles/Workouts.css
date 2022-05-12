@@ -65,3 +65,24 @@
     align-self:flex-start;
     padding-left: 50px;
 }
+
+#generate-workout-modal{
+    position: absolute;
+    top: 5%;
+    z-index: 3;
+}
+
+#generate-workout-modal div.generate-workout{
+    display: flex;
+    flex-direction: column;
+}
+
+#generate-workout-modal #exercises{
+    display: flex;
+    flex-direction: column;
+}
+
+#generate-workout-modal #exercises input{
+    margin-left: 20%;
+    margin-right: 20%;
+}
