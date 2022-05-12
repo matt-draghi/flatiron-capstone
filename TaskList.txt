@@ -1,13 +1,10 @@
-
-STRETCH
+Tasks
+- Allow users to generate a random workout based on different criteria
 - add filter on list pages for workouts, exercises
 - create admin page for admins to add new exercises, equipment, etc.
-- use web scraping to populate equipment?
 -have search bar functionality work to display a separate div below the search bar with
   all results from workouts, equipment pieces and exercises, taking them to the individual
   page for whatever they clicked on???
 - Create hiit timer
-
-SUPER STRETCH 
-- Allow users to generate a random workout based on different criteria
 - add a chart that tracks a users fitnees progress?
+- add media queries to allow for a responsive ui based on device/browser
