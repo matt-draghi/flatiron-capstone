@@ -10,10 +10,4 @@ STRETCH
 
 SUPER STRETCH 
 - Allow users to generate a random workout based on different criteria
-
-
-
-TASKS
-1. Add ui elements for random workou
-    - slider under each muscle group type???
-2. Create Admin page for admins to add new exercises
+- add a chart that tracks a users fitnees progress?
